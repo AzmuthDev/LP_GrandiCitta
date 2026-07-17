@@ -1,0 +1,8 @@
+# Template de referência (muito pesado)
+aura.build_templates_axisform/
+aura.build_templates_axisform.zip
+generated-page.html
+
+# OS files
+.DS_Store
+Thumbs.db

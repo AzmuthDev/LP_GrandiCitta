@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandi Città Engenharia — Construindo o Futuro Urbano</title>
+  <meta name="description" content="De masterplans urbanos a arquiteturas icônicas, a Grandi Città combina décadas de design visionário e execução especializada para moldar ambientes urbanos prósperos e sustentáveis.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#facc15',
+              500: '#D4AF37',
+              600: '#B8960E',
+              700: '#92780B',
+              800: '#6B5A08',
+              900: '#4A3D05',
+            },
+            charcoal: {
+              50: '#fafaf9',
+              100: '#f0eeec',
+              200: '#dbd8d4',
+              300: '#a8a29e',
+              400: '#78716c',
+              500: '#57534e',
+              600: '#44403c',
+              700: '#3a3631',
+              800: '#292524',
+              850: '#1f1d1b',
+              900: '#1c1917',
+              950: '#0f0e0d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes slideDownLetter {
+      0% { transform: translateY(-120%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .clip-text-container {
+      display: inline-flex;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+    .animate-letter {
+      display: inline-block;
+      transform: translateY(-120%);
+      opacity: 0;
+      animation: slideDownLetter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+
+  <style>
+    :root { color-scheme: light dark; }
+    ::selection { background: rgba(212, 175, 55, 0.3); color: #1c1917; }
+    
+    body {
+      font-family: 'Syne', sans-serif;
+    }
+    
+    .font-geist { font-family: 'Geist', sans-serif; }
+    .font-syne { font-family: 'Syne', sans-serif; }
+    .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+    
+    /* Noise overlay premium */
+    body::before { 
+      content: ''; 
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999; 
+      opacity: 0.25; 
+      mix-blend-mode: overlay; 
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"); 
+    }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1c1917; }
+    ::-webkit-scrollbar-thumb { background: #D4AF37; }
+    ::-webkit-scrollbar-thumb:hover { background: #B8960E; }
+
+    /* Hero diagonal mask */
+    .hero-mask {
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* Animated underline */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #D4AF37;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Card hover lift */
+    .service-card {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(212, 175, 55, 0.18);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #D4AF37, #f0d060);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Play button pulse */
+    .play-pulse {
+      animation: pulse-ring 2s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
+
+    /* Counter animation */
+    .stat-number {
+      display: inline-block;
+    }
+
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Red accent line */
+    .accent-line {
+      width: 60px;
+      height: 3px;
+      background: #D4AF37;
+    }
+
+    /* Decorative diagonal lines */
+    .diagonal-lines {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 120px;
+      height: 120px;
+      opacity: 0.15;
+    }
+    .diagonal-lines::before,
+    .diagonal-lines::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #D4AF37;
+      transform: rotate(-45deg);
+    }
+    .diagonal-lines::before { top: 30%; }
+    .diagonal-lines::after { top: 60%; }
+  </style>
+</head>
+
+<body class="bg-charcoal-950 text-white antialiased overflow-x-hidden">
+
+  <!-- ==================== TOP BAR ==================== -->
+  <div class="bg-charcoal-900 border-b border-charcoal-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-2.5">
+        <!-- Left: Social Icons -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="https://facebook.com" class="flex h-8 w-8 items-center justify-center text-charcoal-400 hover:text-gold-500 transition-colors" aria-label="Facebook">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://instagram.com/grandi.citta" class="flex h-8 w-8 items-center justify-center text-charcoal-400 hover:text-gold-500 transition-colors" aria-label="Instagram">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+          </a>
+          <a href="https://linkedin.com" class="flex h-8 w-8 items-center justify-center text-charcoal-400 hover:text-gold-500 transition-colors" aria-label="LinkedIn">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: Contact info -->
+        <div class="flex items-center gap-6 text-xs text-charcoal-300 font-geist ml-auto">
+          <a href="tel:31996734478" class="hidden sm:flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="phone" class="h-3 w-3 text-gold-500"></i>
+            +55 (31) 99673-4478
+          </a>
+          <a href="mailto:grandicitta.engenharia@gmail.com" class="hidden lg:flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="mail" class="h-3 w-3 text-gold-500"></i>
+            grandicitta.engenharia@gmail.com
+          </a>
+          <a href="#visit" class="flex items-center gap-2 hover:text-white transition-colors">
+            <i data-lucide="map-pin" class="h-3 w-3 text-gold-500"></i>
+            Juiz de Fora, MG
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header class="sticky top-0 z-50 bg-white shadow-lg shadow-black/10">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-[72px]">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img data-no-webgl src="data:image/jpeg;base64,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65K6rJVzxKLVcnI6uSYtysu5Jgy3iI7m+UcRx5VsxkSi0BPc/ex8S+/GEOzjxinHzqxo6GNKPWMldtubP5w19UbUrbuobdwstMFJCAiRE7uhiPDaPqX0ptsVqXvmYrj0uAybg4gUXBiX3Vn0YBHtVICKxZcNT9n2f28+VeNmfXqgbYxaxHwrUk/b9w2/VZ96hzjASU0XSHliXR8y29Hs+oVhde0wo9cnn6j77OyxzUOD4tObXPUJKzzfHT3YR+v9lelsYpl7fw8TRptzjVnHCEok6ORD3uZbBq9NZq1NmKe51A82TZfZkregW/Tbdlfc6ezAByyLjzGWPMvWiWIrK47QlRp/49yjY2Ptv+yLVNPtnUahQcpdLmJUpTL6N9zHIPNyrZVNZnGZBpqecE3RDFwh7xK9EYdqriP1KdHiqtLOZRUXbErWA6l2rVrkOnfk2WadhLkXSZu445Y/e5V8ritKsT920asSbLRMSJt9KRRHIR6TIsflWwYbuZS2kqZ8PVO3Nkv+pjszjHq+ERcwEctywQbRq/74ZXDFkPc8Ofpd2XRkPL4VsKPYqQ8WKydjRhs9e39VMLZV+Wv7atOrU286pWJpkBl5wXOjMXci3EJcvyrNpls35dxkSISIcch5hLFXZdijAijHl2qNbj4a1Uq4/wBidsrJdmov3B3fT4z9OkW5V2TmiLFw3BHLLLmHHaW7urMNOKDUrdoUKdUGQaNt0sIAcC4j1f3ll8ezakOxYupwlOpd90f2XLdudkOmWJ6hUOoXBQSkKa2Jv9KJYk50Yl8y9G1ZCapdEkpOabEXW2RFwRLIRLvbl7ePUqR7qzIaUMbH3/2Wc2+vV5lwSTtQo83Jy/DpXmSbDiWORFDxLwtP6DUrepbsvUpcAMnSLgDuQ+FZjzQTyqJ6MJbOLyNsunVj94URy4KI/S23BA3Nw5eISyWtZiw75nabL0t6Vk/d5Mh6IBdEchHvcu1bqjj8VGAisPd4avdv+6S9Ttzqj1itaY283JtDMtiLgiIkIllwV9DtVAhxUuzjFetTX9NeIRWJS7KoiK+pEREBERAREQEREBERAUY5eVSRBDh1buCQEoKaKPAhiXH4cFHEsvsX1RUp8ol2qkBjxy6lNFV4QjiKYxUkUiOPXzKkRKP1KaIIwHxJEVJFHgRxiq4wVUUiEYR8IqvAvsUkQRxiqQHr5RU0QQ4EqREvEvoiHZEe1UIVWEO1SUeDKIwLvKimikUhDGCoSkokhhJERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/9k=" alt="Grandi Città Logo" class="h-12 w-12 object-contain">
+          <div class="hidden sm:block">
+            <span class="block text-lg font-geist font-bold text-charcoal-900 tracking-tight leading-tight">
+              GRANDI CITTÀ
+            </span>
+            <span class="block text-[10px] font-geist font-medium text-charcoal-400 uppercase tracking-[0.3em]">
+              Engenharia
+            </span>
+          </div>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 transition-colors uppercase tracking-wider">Nossa Visão</a>
+          <a href="#portfolio" class="nav-link text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 transition-colors uppercase tracking-wider">Portfólio</a>
+          <a href="#services" class="nav-link text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 transition-colors uppercase tracking-wider">Nossos Serviços</a>
+          <a href="#innovations" class="nav-link text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 transition-colors uppercase tracking-wider">Inovações</a>
+          <a href="#visit" class="nav-link text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 transition-colors uppercase tracking-wider">Contato</a>
+        </div>
+
+        <!-- CTA + Search -->
+        <div class="flex items-center gap-3">
+          <button class="hidden md:flex h-10 w-10 items-center justify-center text-charcoal-500 hover:text-gold-500 transition-colors" aria-label="Buscar">
+            <i data-lucide="search" class="h-5 w-5"></i>
+          </button>
+          <a href="tel:31996734478" class="bg-gold-500 hover:bg-gold-600 text-white px-5 py-2.5 text-xs font-syne font-bold uppercase tracking-widest transition-all hover:shadow-lg hover:shadow-gold-500/25">
+            Solicitar Proposta
+          </a>
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="lg:hidden flex h-10 w-10 items-center justify-center text-charcoal-700" aria-label="Menu">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-charcoal-100 px-4 py-4">
+      <div class="flex flex-col gap-3">
+        <a href="#about" class="text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 py-2 uppercase tracking-wider">Nossa Visão</a>
+        <a href="#portfolio" class="text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 py-2 uppercase tracking-wider">Portfólio</a>
+        <a href="#services" class="text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 py-2 uppercase tracking-wider">Nossos Serviços</a>
+        <a href="#innovations" class="text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 py-2 uppercase tracking-wider">Inovações</a>
+        <a href="#visit" class="text-sm font-syne font-medium text-charcoal-700 hover:text-gold-500 py-2 uppercase tracking-wider">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative overflow-hidden pb-32" id="hero">
+      <!-- Full Background Image -->
+      <div class="absolute inset-0">
+        <img src="Imagens/imgi_9_683589537_17974445553040069_3953164465956237005_n.jpg" alt="Background Hero" class="w-full h-full object-cover">
+        <!-- Heavy overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-charcoal-950/60"></div>
+        <!-- Gradient from left to right for better text contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-950/60 to-transparent"></div>
+      </div>
+
+      <!-- Background subtle pattern -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+      </div>
+      <!-- Gradient glow -->
+      <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-0 items-center min-h-[85vh]">
+          
+          <!-- Left: Text Content -->
+          <div class="pt-24 lg:pt-0 lg:pr-12">
+            <p class="text-xs font-syne font-semibold uppercase tracking-[0.35em] text-gold-400 mb-6 drop-shadow-md">
+              Planejamento Urbano <span class="text-white mx-2">|</span> Desenvolvimento de Grande Escala <span class="text-white mx-2">|</span> Construção de Qualidade
+            </p>
+
+            <h1 class="relative text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bebas font-bold text-white leading-[1.05] mb-6 drop-shadow-xl uppercase tracking-wide flex flex-wrap">
+              <!-- Blueprint Drafting Lines -->
+              <div class="absolute inset-0 -mx-12 -my-8 pointer-events-none z-0" aria-hidden="true">
+                <svg class="w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Subtle Grid -->
+                  <defs>
+                    <pattern id="blueprint-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.3"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#blueprint-grid)" />
+                  
+                  <!-- Main Construction Lines -->
+                  <line x1="-10%" y1="20%" x2="110%" y2="20%" stroke="white" stroke-width="1" stroke-opacity="0.7" />
+                  <line x1="-10%" y1="80%" x2="110%" y2="80%" stroke="white" stroke-width="1" stroke-opacity="0.7" />
+                  <line x1="15%" y1="-10%" x2="15%" y2="110%" stroke="white" stroke-width="1" stroke-opacity="0.7" />
+                  <line x1="50%" y1="-10%" x2="50%" y2="110%" stroke="white" stroke-width="1" stroke-opacity="0.7" />
+                  <line x1="85%" y1="-10%" x2="85%" y2="110%" stroke="white" stroke-width="1" stroke-opacity="0.7" />
+                  
+                  <!-- Angular Construction Lines -->
+                  <line x1="0%" y1="0%" x2="100%" y2="100%" stroke="white" stroke-width="0.5" stroke-opacity="0.5" />
+                  <line x1="100%" y1="0%" x2="0%" y2="100%" stroke="white" stroke-width="0.5" stroke-opacity="0.5" />
+                </svg>
+              </div>
+
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.10s;">T</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.13s;">r</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.16s;">a</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.19s;">n</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.22s;">s</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.25s;">f</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.28s;">o</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.31s;">r</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.34s;">m</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.37s;">e</span></span></span>
+              <span class="flex w-3 sm:w-4 relative z-10"></span>
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.40s;">s</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.43s;">u</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.46s;">a</span></span></span>
+              <span class="flex w-3 sm:w-4 relative z-10"></span>
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.49s;">V</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.52s;">i</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.55s;">s</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.58s;">ã</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.61s;">o</span></span></span>
+              <div class="w-full h-2 relative z-10"></div>
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.64s;">e</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.67s;">m</span></span></span>
+              <span class="flex w-3 sm:w-4 relative z-10"></span>
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.70s;">u</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.73s;">m</span></span></span>
+              <span class="flex w-3 sm:w-4 relative z-10"></span>
+              <span class="flex relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.76s;">L</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.79s;">e</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.82s;">g</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.85s;">a</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.88s;">d</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.91s;">o</span></span></span>
+              <span class="flex w-3 sm:w-4 relative z-10"></span>
+              <span class="flex text-gold-500 relative z-10"><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.94s;">S</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 0.97s;">ó</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 1.00s;">l</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 1.03s;">i</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 1.06s;">d</span></span><span class="clip-text-container"><span class="animate-letter" style="animation-delay: 1.09s;">o</span></span></span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-gray-200 font-syne leading-relaxed max-w-lg mb-10 drop-shadow-md">
+              Com 20 anos de mercado e mais de 10.000 unidades entregues, garantimos a execução do seu projeto com excelência premium e previsibilidade total — do alicerce ao acabamento.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-5">
+              <a href="#visit" class="group inline-flex items-center gap-3 bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 text-sm font-syne font-bold uppercase tracking-widest transition-all hover:shadow-xl hover:shadow-gold-500/30">
+                Agendar Reunião Técnica
+                <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Right: Hero Image with mask -->
+          <div class="relative h-[400px] sm:h-[500px] lg:h-full lg:min-h-[85vh]">
+            <div class="hero-mask absolute inset-0 lg:-right-8 parallax-layer" data-parallax-speed="0.15">
+              <img src="Imagens/hero_professionals.png" alt="Profissionais de engenharia urbana analisando maquete de cidade" class="w-full h-full object-cover">
+              <!-- Dark gradient overlay to blend with the background image -->
+              <div class="absolute inset-0 bg-gradient-to-r from-charcoal-950 via-charcoal-950/40 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950/60 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Decorative right side lines -->
+            <div class="absolute -right-4 top-1/3 w-24 h-32 hidden xl:block z-0 opacity-50 pointer-events-none">
+              <div class="w-full h-0.5 bg-gold-500/80 rotate-[-45deg] absolute top-4"></div>
+              <div class="w-full h-0.5 bg-gold-500/60 rotate-[-45deg] absolute top-10"></div>
+              <div class="w-full h-0.5 bg-gold-500/40 rotate-[-45deg] absolute top-16"></div>
+              <div class="w-16 h-0.5 bg-gold-500/20 rotate-[-45deg] absolute top-22"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICE CARDS (01, 02, 03) ==================== -->
+    <section class="relative bg-white py-0 z-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-0">
+          
+          <!-- Card 01 -->
+          <div class="service-card group bg-white border border-charcoal-100 p-8 lg:p-10 relative overflow-hidden">
+            <div class="absolute top-6 right-6 text-6xl font-geist font-black text-gold-500 transition-colors select-none">01</div>
+            <div class="relative z-10">
+              <div class="flex h-16 w-16 items-center justify-center bg-gold-500 text-white mb-6">
+                <i data-lucide="layout-grid" class="h-7 w-7"></i>
+              </div>
+              <h3 class="text-xl font-geist font-bold text-charcoal-900 mb-3">Masterplans Lucrativos</h3>
+              <p class="text-sm text-charcoal-500 font-syne leading-relaxed">
+                Projetos que integram sustentabilidade e design estratégico para maximizar a valorização e a rentabilidade da sua área urbana.
+              </p>
+            </div>
+            <!-- Bottom accent line -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gold-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="service-card group bg-gold-500 p-8 lg:p-10 relative overflow-hidden">
+            <div class="absolute top-6 right-6 text-6xl font-geist font-black text-white select-none">02</div>
+            <div class="relative z-10">
+              <div class="flex h-16 w-16 items-center justify-center bg-white/20 text-white mb-6 backdrop-blur-sm">
+                <i data-lucide="network" class="h-7 w-7"></i>
+              </div>
+              <h3 class="text-xl font-geist font-bold text-white mb-3">Infraestrutura Sem Dores de Cabeça</h3>
+              <p class="text-sm text-gold-100 font-syne leading-relaxed">
+                Evite imprevistos e atrasos na sua obra com a nossa execução geotecnológica de alta precisão e total previsibilidade orçamentária.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="service-card group bg-white border border-charcoal-100 p-8 lg:p-10 relative overflow-hidden">
+            <div class="absolute top-6 right-6 text-6xl font-geist font-black text-gold-500 transition-colors select-none">03</div>
+            <div class="relative z-10">
+              <div class="flex h-16 w-16 items-center justify-center bg-gold-500 text-white mb-6">
+                <i data-lucide="building-2" class="h-7 w-7"></i>
+              </div>
+              <h3 class="text-xl font-geist font-bold text-charcoal-900 mb-3">Padrão de Qualidade Absoluto</h3>
+              <p class="text-sm text-charcoal-500 font-syne leading-relaxed">
+                A tranquilidade de ter cada etapa validada por especialistas rigorosos, entregando um acabamento premium que reflete a sua exigência.
+              </p>
+            </div>
+            <!-- Bottom accent line -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gold-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT US SECTION ==================== -->
+    <section class="relative bg-white py-20 sm:py-28 overflow-hidden" id="about">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          <!-- Left: Image with badge -->
+          <div class="relative fade-in">
+            <div class="relative">
+              <!-- Main image -->
+              <div class="relative overflow-hidden shadow-2xl shadow-charcoal-900/20">
+                <img src="Imagens/about_professional.png" alt="Engenheiro sênior com tablet digital" class="w-full h-[500px] lg:h-[600px] object-cover">
+              </div>
+              
+              <!-- Floating badge -->
+              <div class="absolute -bottom-6 -right-6 sm:bottom-8 sm:right-8 bg-gold-500 text-white p-6 sm:p-8 shadow-xl shadow-gold-500/30">
+                <span class="block text-4xl sm:text-5xl font-geist font-black leading-none">20</span>
+                <span class="block text-sm font-syne font-medium uppercase tracking-wider mt-1">Anos de<br>Urbanismo</span>
+              </div>
+
+              <!-- Small decorative image -->
+              <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-24 h-24 border-4 border-white shadow-lg overflow-hidden hidden lg:block">
+                <img src="Imagens/imgi_28_503023171_17936448003040069_4712214832023047394_n.jpg" alt="Detalhe obra" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="fade-in">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="accent-line"></div>
+              <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Sobre Nós</p>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-charcoal-900 leading-tight mb-6">
+              Engenharia para um Padrão Urbano Elevado
+            </h2>
+
+            <p class="text-charcoal-500 font-syne leading-relaxed mb-8">
+              Somos o braço de engenharia que viabiliza a visão dos nossos parceiros, desde grandes obras de infraestrutura até residências de alto padrão. Combinamos tecnologia de ponta com décadas de experiência prática de campo para garantir que o seu projeto saia do papel com precisão absoluta.
+            </p>
+
+            <!-- Checklist -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-10">
+              <div class="flex items-center gap-3">
+                <div class="flex h-6 w-6 items-center justify-center bg-gold-500 text-white flex-shrink-0">
+                  <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                </div>
+                <span class="text-sm font-syne text-charcoal-700">Contenções e Terraplenagem</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-6 w-6 items-center justify-center bg-gold-500 text-white flex-shrink-0">
+                  <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                </div>
+                <span class="text-sm font-syne text-charcoal-700">Obras Comerciais e Industriais</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-6 w-6 items-center justify-center bg-gold-500 text-white flex-shrink-0">
+                  <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                </div>
+                <span class="text-sm font-syne text-charcoal-700">Residências Alto Padrão</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-6 w-6 items-center justify-center bg-gold-500 text-white flex-shrink-0">
+                  <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                </div>
+                <span class="text-sm font-syne text-charcoal-700">Planejamento Urbano</span>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-8 mb-10 pt-8 border-t border-charcoal-100">
+              <div class="flex items-center gap-4">
+                <div class="border-l-2 border-gold-500 pl-4">
+                  <span class="block text-3xl font-geist font-black text-charcoal-900">10k+</span>
+                  <span class="block text-xs font-syne text-charcoal-500 uppercase tracking-wider">Unidades Habitacionais<br>Entregues</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="border-l-2 border-gold-500 pl-4">
+                  <span class="block text-3xl font-geist font-black text-charcoal-900">100+</span>
+                  <span class="block text-xs font-syne text-charcoal-500 uppercase tracking-wider">Projetos Urbanos<br>Concluídos</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#visit" class="group inline-flex items-center gap-3 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white px-8 py-4 text-sm font-syne font-bold uppercase tracking-widest transition-all">
+              Saiba Mais
+              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PORTFOLIO ==================== -->
+    <section class="relative bg-charcoal-950 py-20 sm:py-28 overflow-hidden" id="portfolio">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img src="Imagens/imgi_28_503023171_17936448003040069_4712214832023047394_n.jpg" alt="Background Portfólio" class="h-full w-full object-cover">
+        <div class="absolute inset-0 bg-charcoal-950/80"></div>
+      </div>
+
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+      </div>
+
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="accent-line"></div>
+              <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Portfólio</p>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-white">O que já construímos para parceiros como você.</h2>
+          </div>
+          <a href="#visit" class="inline-flex items-center gap-2 text-sm font-syne font-semibold uppercase tracking-widest text-gold-500 hover:text-white transition-colors">
+            Ver todos os projetos <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+
+        <!-- Portfolio grid -->
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Portfolio 1 -->
+          <div class="group relative overflow-hidden bg-charcoal-900 border border-white/5 aspect-[4/5] cursor-pointer fade-in">
+            <img src="Imagens/imgi_10_657795628_17970877647040069_4137890049140045157_n.jpg" alt="Muro de Gabião" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <p class="text-xs font-syne font-bold uppercase tracking-widest text-gold-500 mb-2">Obras de Contenção</p>
+              <h3 class="text-2xl font-geist font-bold text-white">Canal Pluvial Gabião (RJ)</h3>
+            </div>
+            <div class="absolute top-4 right-4 h-10 w-10 flex items-center justify-center bg-gold-500/0 group-hover:bg-gold-500 text-white/0 group-hover:text-white transition-all">
+              <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+            </div>
+          </div>
+
+          <!-- Portfolio 2 -->
+          <div class="group relative overflow-hidden bg-charcoal-900 border border-white/5 aspect-[4/5] cursor-pointer lg:translate-y-12 fade-in">
+            <video src="vídeodrone.mp4" autoplay loop muted playsinline class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"></video>
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <p class="text-xs font-syne font-bold uppercase tracking-widest text-gold-500 mb-2">Residencial Premium</p>
+              <h3 class="text-2xl font-geist font-bold text-white">Estrela Alta (JF)</h3>
+            </div>
+            <div class="absolute top-4 right-4 h-10 w-10 flex items-center justify-center bg-gold-500/0 group-hover:bg-gold-500 text-white/0 group-hover:text-white transition-all">
+              <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+            </div>
+          </div>
+
+          <!-- Portfolio 3 -->
+          <div class="group relative overflow-hidden bg-charcoal-900 border border-white/5 aspect-[4/5] cursor-pointer md:col-span-2 lg:col-span-1 fade-in">
+            <img src="Imagens/imgi_21_559496277_17950774542040069_6193427023837653235_n.jpg" alt="Interior Alto Padrão" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <p class="text-xs font-syne font-bold uppercase tracking-widest text-gold-500 mb-2">Acabamento Premium</p>
+              <h3 class="text-2xl font-geist font-bold text-white">Interior Residencial (JF)</h3>
+            </div>
+            <div class="absolute top-4 right-4 h-10 w-10 flex items-center justify-center bg-gold-500/0 group-hover:bg-gold-500 text-white/0 group-hover:text-white transition-all">
+              <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+            </div>
+          </div>
+
+          <!-- Portfolio 4 - Wide -->
+          <div class="group relative overflow-hidden bg-charcoal-900 border border-white/5 aspect-[16/7] cursor-pointer md:col-span-2 fade-in">
+            <img src="Imagens/imgi_14_598554018_17957697069040069_6314854632200946943_n.jpg" alt="Solo Grampeado" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <p class="text-xs font-syne font-bold uppercase tracking-widest text-gold-500 mb-2">Solo Grampeado</p>
+              <h3 class="text-2xl font-geist font-bold text-white">Contenção de Taludes (BH)</h3>
+            </div>
+            <div class="absolute top-4 right-4 h-10 w-10 flex items-center justify-center bg-gold-500/0 group-hover:bg-gold-500 text-white/0 group-hover:text-white transition-all">
+              <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+            </div>
+          </div>
+
+          <!-- Portfolio 5 -->
+          <div class="group relative overflow-hidden bg-charcoal-900 border border-white/5 aspect-[4/5] lg:aspect-auto lg:h-full cursor-pointer fade-in">
+            <img src="Imagens/imgi_17_581080329_17954945508040069_8685714346076634104_n.jpg" alt="Galpões Amazon" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <p class="text-xs font-syne font-bold uppercase tracking-widest text-gold-500 mb-2">Industrial</p>
+              <h3 class="text-2xl font-geist font-bold text-white">Galpões AMAZON</h3>
+            </div>
+            <div class="absolute top-4 right-4 h-10 w-10 flex items-center justify-center bg-gold-500/0 group-hover:bg-gold-500 text-white/0 group-hover:text-white transition-all">
+              <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="relative overflow-hidden" id="services">
+      <!-- Dark textured background -->
+      <div class="absolute inset-0 bg-gradient-to-b from-charcoal-900 to-charcoal-950"></div>
+      <!-- Decorative red diagonals on right -->
+      <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 hidden lg:block">
+        <div class="absolute top-1/4 right-12 w-64 h-0.5 bg-gold-500 rotate-[-35deg]"></div>
+        <div class="absolute top-1/3 right-8 w-48 h-0.5 bg-gold-500 rotate-[-35deg]"></div>
+        <div class="absolute top-[40%] right-16 w-32 h-0.5 bg-gold-500 rotate-[-35deg]"></div>
+      </div>
+
+      <div class="relative z-10 py-20 sm:py-28">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <!-- Section header -->
+          <div class="text-center mb-16">
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <div class="accent-line"></div>
+              <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Como Podemos Ajudar</p>
+              <div class="accent-line"></div>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-white">Nossas Soluções Especializadas</h2>
+          </div>
+
+          <!-- Service cards with images -->
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Service 1 -->
+            <div class="group relative overflow-hidden bg-charcoal-800 border border-charcoal-700/50 hover:border-gold-500/50 transition-all duration-500 fade-in">
+              <div class="relative h-56 overflow-hidden">
+                <img src="Imagens/imgi_8_726870516_17981371371040069_5604872119408282507_n.jpg" alt="Engenharia de Contenção" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-800 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6 relative">
+                <!-- Red accent bar -->
+                <div class="absolute top-0 left-6 right-6 h-1 bg-gold-500"></div>
+                <h3 class="text-lg font-geist font-bold text-white mt-4 mb-2">Engenharia de Contenção</h3>
+                <p class="text-sm text-charcoal-400 font-syne leading-relaxed">Muros de gabião, solo grampeado e muros de arrimo com tecnologia avançada e máxima segurança geotécnica.</p>
+              </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="group relative overflow-hidden bg-charcoal-800 border border-charcoal-700/50 hover:border-gold-500/50 transition-all duration-500 fade-in">
+              <div class="relative h-56 overflow-hidden">
+                <img src="Imagens/team_construction.png" alt="Infraestrutura Moderna" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-800 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6 relative">
+                <div class="absolute top-0 left-6 right-6 h-1 bg-gold-500"></div>
+                <h3 class="text-lg font-geist font-bold text-white mt-4 mb-2">Infraestrutura Moderna</h3>
+                <p class="text-sm text-charcoal-400 font-syne leading-relaxed">Terraplenagem, drenagem, pavimentação e redes viárias com alta capacidade de execução e tecnologia de ponta.</p>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="group relative overflow-hidden bg-charcoal-800 border border-charcoal-700/50 hover:border-gold-500/50 transition-all duration-500 fade-in">
+              <div class="relative h-56 overflow-hidden">
+                <img src="Imagens/urbanismo_loteamento.png" alt="Loteamentos e Urbanismo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-800 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-6 relative">
+                <div class="absolute top-0 left-6 right-6 h-1 bg-gold-500"></div>
+                <h3 class="text-lg font-geist font-bold text-white mt-4 mb-2">Loteamentos e Urbanismo</h3>
+                <p class="text-sm text-charcoal-400 font-syne leading-relaxed">Planejamento e execução de loteamentos inteligentes, integrando urbanismo de ponta e infraestrutura completa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INNOVATIONS / NUMBERS ==================== -->
+    <section class="relative bg-white py-20 sm:py-28 overflow-hidden" id="innovations">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="accent-line"></div>
+            <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Nossos Resultados</p>
+            <div class="accent-line"></div>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-charcoal-900">Números que Falam por Nós</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Stat 1 -->
+          <div class="text-center p-8 border border-charcoal-100 hover:border-gold-500/30 transition-colors fade-in group">
+            <div class="flex h-14 w-14 items-center justify-center bg-gold-500 text-white mx-auto mb-5">
+              <i data-lucide="building-2" class="h-7 w-7"></i>
+            </div>
+            <span class="block text-4xl font-geist font-black text-charcoal-900 mb-1">100+</span>
+            <span class="block text-sm font-syne text-charcoal-500 uppercase tracking-wider">Projetos Concluídos</span>
+          </div>
+          <!-- Stat 2 -->
+          <div class="text-center p-8 border border-charcoal-100 hover:border-gold-500/30 transition-colors fade-in group">
+            <div class="flex h-14 w-14 items-center justify-center bg-gold-500 text-white mx-auto mb-5">
+              <i data-lucide="calendar" class="h-7 w-7"></i>
+            </div>
+            <span class="block text-4xl font-geist font-black text-charcoal-900 mb-1">20+</span>
+            <span class="block text-sm font-syne text-charcoal-500 uppercase tracking-wider">Anos de Experiência</span>
+          </div>
+          <!-- Stat 3 -->
+          <div class="text-center p-8 border border-charcoal-100 hover:border-gold-500/30 transition-colors fade-in group">
+            <div class="flex h-14 w-14 items-center justify-center bg-gold-500 text-white mx-auto mb-5">
+              <i data-lucide="users" class="h-7 w-7"></i>
+            </div>
+            <span class="block text-4xl font-geist font-black text-charcoal-900 mb-1">500+</span>
+            <span class="block text-sm font-syne text-charcoal-500 uppercase tracking-wider">Clientes Satisfeitos</span>
+          </div>
+          <!-- Stat 4 -->
+          <div class="text-center p-8 border border-charcoal-100 hover:border-gold-500/30 transition-colors fade-in group">
+            <div class="flex h-14 w-14 items-center justify-center bg-gold-500 text-white mx-auto mb-5">
+              <i data-lucide="map" class="h-7 w-7"></i>
+            </div>
+            <span class="block text-4xl font-geist font-black text-charcoal-900 mb-1">15+</span>
+            <span class="block text-sm font-syne text-charcoal-500 uppercase tracking-wider">Estados Atendidos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REACH SECTION ==================== -->
+    <section class="relative bg-white py-20 sm:py-28 overflow-hidden border-t border-charcoal-100" id="reach">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="accent-line"></div>
+            <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Nosso Alcance</p>
+            <div class="accent-line"></div>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-charcoal-900">Presença Nacional</h2>
+        </div>
+        
+        <div class="flex justify-center fade-in">
+          <!-- LocationMap Container -->
+          <div class="relative cursor-pointer select-none" id="location-map-container" style="perspective: 1000px;">
+            <div id="location-map-card" class="bg-charcoal-900 border border-charcoal-700 relative overflow-hidden rounded-2xl transition-all duration-500 shadow-xl" style="width: 240px; height: 140px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg); transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+              
+              <!-- Subtle gradient overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20 z-10 pointer-events-none"></div>
+              
+              <!-- Expanded Map View (Hidden by default) -->
+              <div id="location-map-expanded" class="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 pointer-events-none">
+                <div class="absolute inset-0 bg-charcoal-800 rounded-2xl"></div>
+                
+                <!-- Abstract Map Lines -->
+                <svg class="absolute inset-0 h-full w-full opacity-30" preserveAspectRatio="none">
+                  <line x1="0%" y1="35%" x2="100%" y2="35%" class="stroke-gold-500/25" stroke-width="4"></line>
+                  <line x1="0%" y1="65%" x2="100%" y2="65%" class="stroke-gold-500/25" stroke-width="4"></line>
+                  <line x1="30%" y1="0%" x2="30%" y2="100%" class="stroke-gold-500/20" stroke-width="3"></line>
+                  <line x1="70%" y1="0%" x2="70%" y2="100%" class="stroke-gold-500/20" stroke-width="3"></line>
+                  <line x1="0%" y1="20%" x2="100%" y2="20%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="0%" y1="50%" x2="100%" y2="50%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="0%" y1="80%" x2="100%" y2="80%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="15%" y1="0%" x2="15%" y2="100%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="45%" y1="0%" x2="45%" y2="100%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="55%" y1="0%" x2="55%" y2="100%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                  <line x1="85%" y1="0%" x2="85%" y2="100%" class="stroke-gold-500/10" stroke-width="1.5"></line>
+                </svg>
+
+                <!-- Stylized Brazil Map Image -->
+                <div class="absolute inset-0 scale-110 origin-center">
+                <svg class="absolute inset-0 w-full h-full text-charcoal-600 opacity-60 drop-shadow-[0_0_15px_rgba(212,175,55,0.1)] transition-all duration-500 hover:opacity-80" viewBox="0 0 613 639" fill="currentColor" stroke="rgba(255,255,255,0.08)" stroke-width="0.8">
+                  <g transform="scale(0.95) translate(15, 10)">
+                  <path d="m 30.732574,238.03114 -2.08,-0.04 0.54,-1.81 -0.21,-0.83 -0.25,-0.49 -1.25,-0.7 -0.14,-0.45 0.27,-1.15 -0.77,-1.95 -1.09,-0.64 -5.6,-1.25 -7.34,-0.19 0.27,-0.56 2.49,-2.26 0.89,-1.23 0.29,-1.2 -0.22,-1.23 -0.68,-0.91 -0.83,-0.44 -1.68,-2.95 -0.77,-0.44 -0.9,-0.19 -1.13,-1.13 -0.92,-2.38 -2,-1.53 -0.98,-3.62 -0.87,-1.64 -1.88,-1.08 -0.08,-1.17 0.81,0.1 0.42,-0.52 0.07,-0.67 -0.2,-0.42 -2.12,-0.93 -0.36,-0.66 -2.16999996,-1.89 0.04,-0.37 0.62,-0.05 0.49999996,-1.32 -0.01,-1.31 3.01,-0.39 0.5,-0.39 -0.22,-1.35 -1.17,-1.57 0,0 17.95,7.48 23.66,5.66 12.14,3.14 26.44,14.17 28.509996,12.13 0,0 2.97,1.26 0,0 -0.3,0.48 -1.57,0.66 -2.09,1.59 -2.86,2.79 -1.65,0.86 -0.66,-0.18 -1.53,0.18 -0.05,0.56 -1.92,1.3 -2.08,0.99 -1.439996,1.83 -0.44,1.18 -0.61,0.28 -1.17,-0.75 -0.76,-0.13 -2.37,0.05 -0.68,0.26 -0.63,0.45 -0.36,0.86 -2.44,3.48 -3.77,1.25 -0.84,0.69 -1.94,0.51 -1.03,0.03 0.08,-2.11 -1.36,0.2 -3.55,-0.77 -5.24,-0.47 -5.09,0.38 -0.66,-0.58 -2.27,-0.17 -3.56,1.83 -2.73,0.62 -1.68,-0.67 -1.4,-1.44 -1.64,1.16 0.04,-17.55 0.05,-1.1 0.47,-0.71 0.07,-2.35 -0.26,-0.88 0.97,-1.18 0.48,-1.14 -1.16,0.2 -2.97,2.59 -1.6,1.01 -2.06,2.38 -1.95,0.67 -0.65,1.08 -1.81,0.99 z" id="ac" title="Acre"></path>
+                  <path d="m 562.17257,230.56114 -0.2,-0.73 -1.42,-0.78 -0.45,0.09 -1.02,-0.29 -0.54,-1.4 0,0 1.32,-1.07 0.64,-1.09 2.17,-0.76 2.38,-3.29 0.09,-0.69 0.82,-0.6 1,1.22 1.67,0.3 1.08,-0.12 2.55,2.02 1.9,2.12 1.78,1.05 1.91,0.48 2.5,-0.65 3.14,0.29 1.17,-0.11 1.86,-1.06 1.16,0.05 1.81,-1.11 2.18,-2.29 0.12,-0.45 1.55,-1.24 2,-0.24 2.24,0.85 2.56,-1.29 1.47,-0.19 1.92,0.81 2.9,0.27 0.27,0.21 0,0 -2.78,4.96 -4.55,5.13 -3.58,3.58 -3.04,4.58 -3.33,2.88 -1,2.03 -1.32,1.79 0,0 -0.6,-1.31 -3.59,-2.23 -0.46,-0.03 -1.66,-0.79 -1.76,-1.45 -1.3,-2.45 -5.42,-3.07 -3.68,-0.95 z" id="al" title="Alagoas"></path>
+                  <path d="m 345.24257,99.961144 -0.94,-0.06 -0.77,0.339996 -1.3,0.12 -2.79,-0.679996 -1.45,-1.03 -0.43,-1.5 -1.87,-1.39 -0.11,-1.3 0.21,-0.69 -0.31,-1.58 -0.33,-0.47 -0.95,-0.19 -0.41,-0.94 0.08,-2.43 -2.93,-3.28 -0.78,0.36 -0.82,-0.19 -1.5,-3.48 0.13,-1.58 -0.59,-1.81 -0.62,-0.56 -0.67,-1.51 -0.19,-2.11 0.43,-3.14 -0.17,-0.33 -2.57,-0.73 -2.02,-2.26 -0.76,-2.83 0.19,-0.72 0.68,-0.23 -0.49,-1.18 -0.68,0.03 -2.84,-2.66 -0.94,0.14 -0.38,0.42 -1.33,0.14 -0.84,-0.27 -0.8,-0.98 -1.14,-0.84 -1.19,-0.12 -0.49,-1.28 -0.67,-0.8 -1.93,-1.05 -1.29,-0.49 -3.39,-0.37 -1.08,0.29 -1.17,-0.02 -0.31,-0.54 -0.24,-1.44 0.25,-4.54 0.62,-1.3 -0.37,-2.3 -0.62,-0.57 0,0 0.35,-0.21 0.99,0.3 -0.01,0.81 -0.29,0.18 0.34,0.97 1.47,-0.06 0.82,0.23 0.35,0.9 0.84,0.71 2.25,0.78 3.29,0.75 2.76,-1.78 0.35,-0.76 1.73,-1.17 0.83,-0.29 0.69,0.94 2.71,0.94 1.08,-0.12 1.72,-1.01 0.12,-0.42 0.32,0.03 1.46,1.3 -0.2,0.87 2.37,-0.17 0.51,0.5 0.95,0.17 0.62,-0.01 0.91,-0.48 1.67,-1.5 1.78,-1.1 1.75,-2.3 0.37,-1 -0.2,-0.54 3.13,-6.5 0.11,-1.82 1.11,-1.3 0.73,-0.19 3.6,-5.79 0.23,-1.15 0.84,-1.2 1.79,-1.55 0.63,-1.66 2.11,-1.14 0.47,-0.92 1.04,-0.58 0.56,1.46 0.88,1.36 -1.67,-4.8 -0.07,-1.29 0.18,-0.33 3.37,2.42 1.14,1.21 0.91,1.22 0.52,1.19 0.03,1.58 0.44,0.31 0.32,-0.48 0.38,-0.1 0.21,0.4 0.21,7.89 0.66,3.87 2.71,6.05 2.66,8.94 3.32,5 1.01,0.35 3.27,-0.08 2.78,0.94 1.29,0.85 0.77,2.65 -0.16,3.33 -1.29,0.96 -1.73,0.43 -0.38,0.33 1.79,-0.15 1.04,-0.42 0.28,0.23 0.12,0.59 -0.17,0.73 -5.03,4.06 -1.17,2.1 -2.15,1.41 -1.94,3.72 -2.91,3.5 -0.7,0.46 -0.94,-0.09 -1.45,0.52 -2.08,2.98 0,0 -1.34,0.07 -0.75,0.9 0,0 -1.47,1.68 -0.97,2.22 -1.12,1.87 -0.84,0.65 -3.01,3.45 -0.36,2.4 0.17,1.8 -1.95,1.81 -0.98,0.12 z m 23.36,-46.99 -0.45,-0.33 -1.1,-1.86 0.07,-0.88 0.23,-0.41 1.66,-0.45 0.43,0.39 0.83,2.27 -0.99,1.1 -0.68,0.17 z m 2.49,17.61 -0.4,-0.25 -0.08,-0.71 1.11,-1.1 0.88,-0.15 1.25,0.24 0.46,-0.11 0.44,-0.64 0.05,0.59 -0.97,1.44 -0.99,0.5 -1.75,0.19 z m 3.44,-2.87 -0.78,-0.23 0,-0.56 0.72,-1.04 1.25,-0.1 0.18,0.35 -0.1,0.51 -1.27,1.07 z m -7.19,-18.42 -0.76,-0.5 0.26,-0.83 0.88,-0.17 0.86,0.32 0.01,0.73 -1.25,0.45 z" id="ap" title="Amapá"></path>
+                  <path d="m 166.08257,47.551144 0.72,0.78 0.75,0.34 0.61,0.01 1.13,-0.42 0.63,0.11 0.06,0.96 1.21,1.17 0.97,0.37 0.88,-0.21 1.36,0.11 1.95,0.95 0.49,0.66 -0.91,3.32 -0.71,1.5 2.73,3.74 1.66,4.76 0.19,2.26 0.87,1.12 0.05,0.45 -1.62,1.46 0.36,1.59 0.66,1.58 -0.77,3.04 -0.57,0.96 0.29,4.98 0.88,2.17 1.22,0.84 0.58,0.9 1.13,4.33 -0.06,0.58 -1.14,1.32 -1.84,-0.33 -0.14,1.14 5.01,4.42 0.52,0.04 1.96,1.31 1.48,1.649996 1.04,2.04 0.53,0.07 1.34,-0.42 2.36,1.04 -0.44,-2.11 0.75,-2.289996 0.25,-1.73 -0.37,-1.8 0.82,-2.97 1.02,-1.26 1.28,-0.69 2.09,-0.71 0.55,-0.89 1.6,-0.06 2.83,0.93 1.87,2.04 0.92,2.51 1.82,0.23 1.25,-0.46 1.41,-1.41 2.03,-0.55 0.42,-0.39 0.02,-0.53 -1.14,-1.41 -0.23,-0.73 0.11,-0.66 1.15,-2.64 0.07,-1.13 1.66,-3.03 2.33,-3.26 -0.03,-0.68 18.49,0.07 0,0 0.4,4.86 -0.43,1.45 0.18,2.27 0.24,0.68 1.7,0.85 0.18,0.41 -0.35,0.69 -0.05,2.11 1.83,1.99 0.36,0.19 0.7,-0.18 1.84,1.23 0.55,1.83 0.04,0.93 0.3,0.45 4.64,3.769996 4.58,2.54 0.63,0.9 1.35,1.09 1.88,0.67 2.37,1.31 2.26,0.65 1.36,0.15 1.32,0.82 0.08,0.61 1.27,1.34 2.7,1.44 1.1,2.17 1.87,0.79 0.85,-0.61 1.38,-0.35 0.19,0.48 -0.13,0.78 1.81,1.67 -29.9,64.24 -0.78,1.31 -1.45,1.13 -0.58,0.97 -0.03,1.13 0.82,2.33 0.38,0.57 1.07,0.58 1.58,1.56 0.64,1.26 0.15,1.96 0.57,0.57 0,0 -1.18,1.2 -0.2,0.61 -0.06,0.76 0.34,0.84 -0.27,1.01 -1.2,1.82 -0.86,0.64 -0.42,0.85 0.1,0.85 0.66,1.37 0.46,1.94 -1.38,4.22 -1.18,5.22 -1.21,0.73 -47.85,0.32 0,0 0.04,-0.7 -0.36,-0.38 -1.39,-0.28 -1.92,1.08 -0.54,1.74 -0.68,0.19 -3.24,-1.48 -0.68,-2.88 -0.62,-0.2 -0.98,0.13 -0.46,-0.21 -1.25,-3.27 -2.54,-0.98 -1.33,-1.27 -0.8,-1.91 -0.45,-0.49 -2.15,-1.13 -10.79,0.06 -1.38,2.56 -1.72,0.5 0.09,1.17 -0.26,0.22 -2.48,0.53 -1.19,1.59 -0.05,0.67 0.9,0.7 0.17,0.45 -0.36,1.02 -0.81,1.15 -2.06,1.21 -0.11,1.81 0.24,1.46 -3.87,-0.46 -2.13,0.38 -1.2,1.07 -1.79,-0.1 -0.84,-0.55 -0.46,-0.02 -1.75,1.26 -0.53,0.84 0.26,1.75 -2.54,3.16 -0.68,0.08 -0.68,-0.53 -0.64,-2.26 -0.38,-0.09 -1.84,1.02 -1.3,1.21 -1.37,0.39 -0.77,-0.13 -1.08,0.5 -0.41,0.53 -0.13,0.72 -1.22,0.79 -0.37,0.02 -2.31,-2.33 -0.72,-0.37 -2.87,0.33 -3.96,-0.26 0.16,1.29 -0.15,0.56 -1.55,1.81 -1.92,0.58 -3.26,2.56 0,0 -28.509996,-12.13 -26.44,-14.17 -12.14,-3.14 -23.66,-5.66 -17.95,-7.48 0,0 -0.07,-0.65 0.7,-2.92 1.22,-1.4 4.92,-3.47 2.26,-0.24 0.47,-0.3 0.98,-1.56 0.08,-1.03 -1.74,-4.49 0.38,-1.19 1.18,-2.19 1.28,-1.32 0.92,-1.25 0.42,-0.98 0.3,-1.74 -0.29,-1.32 0.67,-2.04 0.31,-2.31 0.73,-0.75 3.66,-1.63 2.19,-1.23 1.15,-1.04 0.44,-1.4 0.78,-0.37 1.41,-0.11 1.65,-0.93 3.54,-2.73 2.42,-0.43 1.51,0.29 4.19,-1.22 1.5,-0.77 1.82,-0.36 3.33,0.38 1.3,-1.59 0.63,-1.45 1.09,-0.61 2.14,0.2 0.64,0.54 1.32,-0.24 1.1,-0.74 1.71,0.12 0.31,0.53 -0.02,1.18 1.61,1.29 2.83,0.08 0.58,-0.4 0.46,-0.78 -0.11,-0.39 1.17,-4.92 6.7,-37.17 1.16,-2.92 -0.99,-4.959996 0.12,-0.26 -1.3,-1.05 -1.48,-2.75 -0.04,-0.49 0.65,-1.39 -0.52,-1.78 -0.37,-0.4 -1.7,-0.59 -3.03,-2.35 -1.94,-2.28 0.2,-11.51 3.89,-0.26 1.75,-1.17 3.5,-0.92 2.68,1.76 1.22,0.11 1.27,-0.43 -0.49,-1.69 0.3,-1.72 -1.37,-2.1 -0.57,-0.54 -1.15,-0.6 -1.51,0.53 -2.79,-0.61 -3.57,0.09 -0.06,-9.9 0.96,0.04 1.32,-0.58 2.28,-0.6 2.84,0.87 19.03,0.06 -0.46,-0.66 -0.79,-0.14 -0.38,-1.2 0.95,-1.93 1.43,0.4 0.61,1.52 0.87,1.32 0.66,0.35 0.83,0.01 1.61,-0.61 1.94,-2.09 0.32,-0.84 1.259996,-1.24 2.55,-1.39 1.29,0.46 1.17,2.58 1.62,1.99 0.74,1.3 0.66,1.78 0.23,1.55 -0.49,3.63 0.2,1.76 3.2,-0.75 8.31,7.06 0.79,0.28 2.5,0.21 2.3,-1 1.7,-1.7 2.11,-1.16 2.19,-0.11 0.56,0.29 0.77,1.08 -0.02,0.97 -1.11,1.7 0.37,0.98 0.58,0.27 1.33,-0.72 0.56,-0.91 0.23,-1.29 1,-1.16 0.47,-0.23 1,0.18 0.55,-0.18 0.41,-0.66 0.46,-2.31 0.51,-0.37 1.51,-0.36 2.93,-1.77 0.97,0.55 0.93,-0.29 1.6,-1.04 1.02,-1.61 2.11,-1.21 2.03,0.55 2.36,-1.65 0.55,-0.82 0.44,-2.66 -0.03,-1.29 0.77,-0.92 1.03,-0.42 1.74,-0.02 1.34,-0.39 2.06,-1.6 0.96,-0.37 2.28,-0.3 z" id="am" title="Amazonas"></path>
+                  <path d="m 527.76257,365.59114 -0.36,-0.83 0.68,-1.35 -0.01,-0.53 -0.53,-1.04 -4.13,-3.05 -0.15,-0.51 0.22,-1.51 -0.57,-1.23 -0.65,0.24 -0.2,0.45 -0.34,0.18 -0.22,-0.25 0.53,-4.4 0.82,-3.3 0.82,-0.88 2.47,0.24 1.02,-0.71 0,-0.42 -0.56,-1.02 0.16,-2.65 4.96,-4.22 1.47,-3.08 -0.42,-1.17 -0.78,-1.02 -0.89,-0.06 -0.73,-0.38 -2.83,-2.47 -2.12,0.02 -2.19,-0.6 -2.27,-1.08 -2.73,-0.56 -1.98,-0.14 -1.32,0.99 -1.47,0.5 -2.61,-0.45 -0.57,0.21 -0.44,-3.96 -6.52,-6.2 -0.38,-0.18 -4.39,1.23 -1.53,-1.24 -0.51,0.21 -0.93,-0.22 -2.54,-1.22 -2.17,-1.62 -0.98,0.18 -4.35,-3.63 -1.1,-0.54 -2.73,-0.75 -1.77,0.25 -1.88,0.9 -0.81,1.12 -0.64,0.18 -5.33,-1.47 -0.61,-0.49 -0.26,-1.5 0.14,-0.89 1.29,-2.74 -0.86,-0.46 -2.28,-0.52 -2.18,-0.04 -1.2,-0.5 -1.79,-0.08 -3.83,1.58 -4.26,3.03 -0.64,1.11 -3.37,1.87 -2.02,0.4 -0.95,1.18 -1.81,1.55 -1.43,0.52 -1,-0.15 -1.85,2.58 -1.04,0.77 -2.13,-0.38 -0.72,0.13 -0.69,1 -1.34,0.92 -0.4,-0.24 1.43,-3.43 -0.51,-2.41 0,0 1.48,-1.97 0.25,-0.77 -0.23,-1.27 -0.67,-1.72 0.1,-0.67 0.71,-1.42 -0.05,-0.46 -3.21,-2.62 -1.69,-3.46 -0.62,-3.52 0.05,-1.55 1.2,-3.83 1.59,-1.03 0.23,-0.38 0.06,-0.94 -1.63,-0.84 -0.11,-0.33 0.48,-2.52 1.43,-1.06 -0.02,-0.37 -2.72,-2.46 0,0 -0.04,-0.93 1.36,-2.38 -0.04,-1.07 -0.17,-0.42 -1.46,-0.49 -0.94,-0.65 -0.35,-1.26 0.06,-2.92 0.19,-0.85 1.95,-1.67 1.14,-0.42 0.96,-0.72 -0.29,-0.63 -0.58,-0.52 -0.92,-0.29 -1.03,0.18 -0.35,-0.33 -0.09,-0.5 0.42,-0.96 2.04,-0.82 0.56,-0.45 -0.04,-0.76 -1.88,-0.98 -3.58,-0.67 -1.86,-1.96 -0.23,-0.92 0.5,-1.16 1.01,-0.73 1.52,-3.48 0.9,-0.61 1.01,-0.27 0.35,-0.38 -1.29,-1.8 0.19,-0.37 3.21,-2.62 3.82,-2.02 0.56,-0.47 0.22,-0.98 0.69,-0.65 0,0 2.33,-0.02 1.44,1.34 0.66,1.04 0.53,2.21 1.76,2.49 4.18,1.86 1.8,-0.52 2.11,0.18 0.33,-0.21 0.75,-1.45 1.14,-0.37 0.67,-0.87 1.17,-0.89 2.21,-0.75 1.33,0.17 1.48,0.53 1.35,-0.42 2.97,-2.42 2.95,-5.05 0.72,-0.86 0.24,-0.92 0.3,-2.56 -0.12,-1.16 -2.24,-4.43 0.05,-0.93 3.24,-1.65 1.95,-0.02 1.5,0.46 0.41,0.93 0.32,0.18 2.12,-0.43 1.39,-0.54 1.33,0.38 1.71,0.99 -0.13,0.65 0.19,0.29 0.82,0.28 3,-0.11 1.47,-0.64 1.7,-0.1 0.82,-1.22 1.51,-1.34 2.73,-0.34 0.77,-0.36 0.81,-0.98 2.17,0.01 0.62,0.63 0.31,0.05 1.86,-1.81 -0.1,-2.4 1.99,-0.38 0.79,0.18 1.05,-0.66 1.5,-2.31 0.46,-1.15 0,0 0.89,0.4 1.16,-0.27 2.2,0.29 2.82,1.39 0.44,0.51 -0.06,2.73 0.72,1.94 2.21,0.91 0.27,2 -0.92,1.68 1.83,0.62 0.96,-0.22 0.82,-0.92 2.87,-0.88 0.77,-3.58 0.5,-0.87 0.75,-0.16 0.78,0.53 0.63,0.05 2.39,-1.02 1.1,-1.24 0.17,-0.59 -0.25,-1.36 0.29,-0.25 2.24,-0.45 0.77,-2.05 1.65,-0.44 2.53,-1.46 0.59,-0.1 1.49,0.56 0.83,1.44 1.36,0.81 2.36,0.78 2.99,0.4 1.58,1.15 0.54,1.65 0.39,0.27 0.43,-0.15 0.29,-1.75 0.43,-0.44 1,-0.01 0.45,0.32 0.02,0.63 -0.62,0.88 0.45,0.83 0.5,0.37 2.1,0.86 0.02,0.94 1.22,3.05 0,0 0.54,1.4 1.02,0.29 0.45,-0.09 1.43,0.79 0.2,0.72 0,0 -0.67,1.16 0.21,2.14 1.28,2.5 1.99,1.95 0.75,1.15 -0.08,3.12 -0.66,1.62 -0.09,0.88 0.76,2.75 -0.3,0.58 -0.69,0.55 -2.55,1 -1.13,-0.75 -1.71,-0.01 -0.32,0.3 -0.59,1.58 0.02,0.77 0.95,1.6 1.1,0.66 0.52,1.49 1.43,1.51 0.15,0.39 -0.13,1.42 -0.34,0.39 0.12,0.42 0.59,0.52 1.93,0.92 0.48,0.71 0.54,0.34 1.55,0.64 2.89,-0.88 0,0 0.64,-0.02 0.36,0.41 -4.08,8.83 -3.83,5.19 -1.03,2.33 -5.03,5.74 -2.45,1.26 -0.87,-0.01 0.3,-1.43 0.37,-0.15 0.14,-1.1 -0.45,-1.93 -1.87,-0.25 -0.43,-1.3 -0.68,-0.75 -0.37,0.6 -0.46,2.33 -0.5,0.87 -0.55,0.38 -0.56,-0.29 -0.49,-1.74 0.11,-0.32 0.31,-0.13 -0.03,-0.39 -0.87,1.29 0.93,1.69 0.46,0.23 0.37,-0.15 1.15,0.26 -0.46,1.81 -1.21,1.15 -0.25,1.82 -1.25,0.97 -0.35,0.67 -0.2,0.84 0.18,0.85 -1.35,-0.39 -0.21,0.39 -0.36,2.52 0.36,-0.72 0.75,0.21 0.24,0.54 -0.23,0.41 0.06,0.62 0.3,0.3 0.33,1 -1.04,2.51 0.57,3.44 -0.55,0.49 -0.57,-0.22 -0.14,1.13 0.59,0.46 1.21,-1.72 -0.47,-2.21 0.82,-0.61 0.25,0.54 -0.06,1.76 -0.96,2.61 -0.74,5.43 -0.51,1.81 0.2,2.47 0.78,2.85 0.19,4.54 0.87,6.41 0.99,3.42 -2.21,6.66 -1.35,6.65 -0.47,1.01 -0.16,2.86 -1.06,3.72 -0.09,2.33 0.39,4.42 0.89,1.71 -2.24,2.98 -1.81,0.67 -0.94,0.64 -2.72,3.89 -0.57,2.04 0,0 -8.09,-5.14 -0.31,-0.53 z m 22.28,-78 -0.23,-1.2 0.74,-0.41 1.06,-1.04 0.16,-0.64 -0.37,-0.73 0.76,0.14 0.82,1.05 -0.05,0.53 -2.89,2.3 z m -2.53,6.85 -0.63,-0.03 0.01,-0.67 0.26,-0.36 -0.8,-0.22 -0.42,-0.4 0.13,-1.07 1.87,-0.15 0.16,0.2 0.11,1.13 -0.69,1.57 z" id="ba" title="Bahia"></path>
+                  <path d="m 574.05257,157.11114 -4.89,1.59 -2.61,2.01 -3.3,6.69 -0.84,1.12 -0.87,0.57 -0.65,1.67 0.15,0.74 -1.4,2.44 -1.46,1.51 -0.57,1.1 -1.03,0.26 -0.78,-0.51 -0.51,0.07 -0.84,0.88 -1.41,2.25 -0.34,1.97 0.64,0.17 0.66,-0.38 0,0 -0.08,0.54 -0.84,1.15 -1.03,3 0.52,1.31 -0.66,1.31 -1.09,0.63 -0.17,0.38 -0.12,0.93 0.24,0.41 0.58,0.29 0.35,0.72 -0.02,1.66 1.24,0.89 0.69,0.08 0.34,1.19 -1.61,3.49 -1.19,1.12 0.17,0.25 0,0 -1.59,0.49 -1.07,0.83 -1.54,2.29 -1.65,0.05 -0.63,-1.64 -0.78,-0.57 -1.36,-0.48 -1.01,-1.07 -0.46,-0.99 -1.83,-0.83 -2.85,-1.9 -3.08,-0.42 -1.29,0.1 -2.14,0.8 -1.63,0.19 -0.89,-0.24 -4.93,-0.2 0,0 0.06,-1.32 -0.68,-0.68 -0.08,-0.97 1.14,-3.11 1.5,-2.25 0.01,-0.69 -0.77,-1.16 -2.56,-0.47 -1.31,-0.65 -1.01,-2.67 -1.05,-5.2 -0.76,-2.57 0.24,-0.45 -0.94,-8.16 -0.11,-0.38 -0.92,-0.69 0.8,-0.58 0.59,-1.58 -0.6,-2.99 -1,-2.01 0.48,-1.6 -0.79,-3.87 0.74,-1.36 0.02,-0.76 -1.36,-1.59 -0.44,-1.73 -3.15,-6.42 -1.8,-4.72 -0.29,-1.29 0.18,-1.46 1.58,-1.97 1.09,-1.85 0.11,-0.8 0,0 0.19,-0.14 -0.04,-0.62 -0.4,-0.66 0.65,-0.81 6.74,-0.22 2.89,-0.43 2.07,-0.66 7.4,0.79 2.12,1.12 1.94,1.5 4.12,2.18 1.46,0.52 4.82,3 1.21,0.2 2.22,2.29 2.99,2.11 2.57,0.72 2.44,2.91 1.22,0.61 2.96,3.81 4.16,3.08 1.46,2 1.04,0.99 1.5,0.82 1.15,0.03 2.37,0.92 0.79,0.67 z" id="ce" title="Ceará"></path>
+                  <path d="m 416.97257,334.13114 -14.69,-0.02 -0.52,-3.26 0.92,-1.83 0.38,-3.73 11.95,0.01 1.83,1.98 0.06,2.21 -0.59,1.19 -0.21,2.44 z" id="df" title="Distrito Federal"></path>
+                  <path d="m 501.89257,411.63114 -0.29,-0.14 0.44,-2.34 0.57,-1.3 -0.59,-3.12 0.16,-0.42 1.72,-2.06 5.15,0.03 0.55,-0.32 0.97,-3.24 1.11,-1.27 0.88,-2.29 0.24,-1.72 0.26,-0.44 1.24,-0.86 1.71,-2.09 0.54,-2.97 -0.29,-2.43 -1.27,-2.81 -1.1,-1.27 -0.52,-0.09 -0.45,0.29 -0.76,-0.28 -0.49,-0.71 0.43,-0.55 1.48,-0.09 0.8,0.35 0.97,0.03 0.95,-0.24 0.32,-0.42 -0.17,-1.72 -1.31,-0.35 -0.21,-0.41 0.3,-1.54 0.03,-1.92 -0.52,-0.66 -1.33,-0.67 -0.3,-0.7 1.17,-1.93 2.17,-1.31 0.31,-0.02 1.05,0.74 1.13,0.11 0.02,-0.81 -1.67,-2.27 1.34,0.13 2.18,-0.29 0.84,-0.61 1.08,-0.32 1.58,-0.08 2.54,0.81 0.91,0.55 0,0 0,0 0,0 0.3,0.53 8.1,5.14 0,0 -0.93,3.35 -0.31,2.86 0.12,3.59 0.72,6.15 -0.31,2.47 -1.49,3.18 -2.75,1.39 -0.55,0.6 -1.67,3.33 -0.98,3.8 -0.77,1.47 -0.83,-0.68 -0.88,-0.13 -0.29,1.28 1.35,0.52 -1.94,4.24 -3.45,3.84 -0.24,-0.27 -1.86,0.66 -0.8,1.23 -0.06,1.39 -0.42,1.25 -1.59,2.02 -0.29,1.13 0,0 -1.62,-1.06 -2.99,0.37 -4.34,-1.01 -2.5,-1.13 -0.67,-4.71 z" id="es" title="Espírito Santo"></path>
+                  <path d="m 416.97257,334.13114 -0.87,-1.01 0.21,-2.44 0.59,-1.19 -0.06,-2.21 -1.83,-1.98 -11.95,-0.01 -0.38,3.73 -0.92,1.83 0.52,3.26 14.69,0.02 0,0 0,0 0,0 -0.53,1.52 0.31,1.57 -0.68,1.59 -1.04,1.25 -0.41,1.47 0.85,1.21 0.85,0.34 1.42,1.03 1.65,4.56 0,0.6 -2.32,2.71 -3.24,3.01 -0.43,2.14 1.09,1.11 0.9,-0.47 1.58,0.57 0.47,0.61 0.18,1 -0.17,0.71 -0.73,0.9 -0.51,1.89 1.19,3.46 -3.09,2.06 -1.16,0.2 -0.86,0.9 -0.48,1.12 -4.89,2.74 -0.7,-0.77 -4.35,-1.86 -0.55,0.48 -0.58,0.09 -1.75,0.01 -1.48,-0.28 -3.86,0.16 -2.01,-0.89 -4.13,2.64 -2.91,2.92 -0.33,0 -1.31,-1.42 -1.52,-0.3 -3.19,1.64 -3.71,-0.62 -2.48,0.96 -2.23,0.54 -1.41,2.1 -1.21,2.46 0.06,1 -0.84,1.3 -0.82,0.28 -0.84,-0.16 -0.45,0.14 -0.94,0.74 -1.64,2.1 -0.57,1.9 0.56,0.61 -0.01,0.34 -0.36,0.23 -0.86,-0.46 0,0 -0.24,-0.45 -2.66,-2.24 -3.15,-0.61 -1.62,-1.55 -1.9,-0.43 -1.49,-0.04 -3.35,-1.34 -0.68,-0.85 -3.07,-1.56 -0.67,-0.61 -1.44,-0.71 -1.14,-0.17 -2.7,-1.68 -2.78,0.16 -3.8,-0.7 -0.13,-0.33 0.26,-0.84 0.57,-1.17 1.31,-1.76 -0.08,-0.42 -2.25,-0.9 -1.14,0.67 -0.66,-0.19 -0.28,-0.41 -0.23,-1.11 0.26,-2.58 -0.19,-1.77 0,0 -0.95,-2.2 -0.18,-3.43 -1.41,-2.19 -0.16,-0.71 0.4,-3.41 2.55,-3.85 0.38,-2.91 0.7,-0.77 2.02,-0.84 1.92,-1.77 1.25,-2.02 0.33,-1.95 0.5,-1.01 1.28,-1.04 0.82,-1.43 0.08,-1.54 1.75,-0.97 1.4,-2.62 2.65,-0.13 2.72,-0.86 0.32,-0.28 1.98,-4.19 0.71,-0.96 0.64,-4.1 0.38,-0.74 1.92,-1.94 1.65,-1.01 1.07,-0.26 1.23,0.68 1.21,-0.73 1.39,-1.43 0.84,-2.93 1.17,-2.87 -0.01,-0.8 -0.48,-1.14 0.58,-2.74 1.6,-3.09 -0.12,-5.18 1.21,-0.78 1.03,-2.63 2,-3.17 0.39,-1.07 -0.16,-2.72 0.35,-0.9 0.97,-0.86 0.27,-1.13 -0.08,-0.63 0,0 0.34,-0.45 0.2,-1.88 0.66,-1.23 1.81,-2.09 0.56,-0.3 -0.03,1.71 -1.22,1.88 -0.52,2.34 2.4,0.4 2.2,1.03 3.93,0.4 3.09,1.71 4.07,1.43 0.63,-0.23 1.63,-5.94 1.47,-2.39 1.18,-0.97 1.15,1.31 1.04,1.88 1.11,3.71 0.61,3.1 1.14,0.05 0.75,-0.75 0.3,-1 0.56,-0.54 2.76,0.34 4.53,-0.53 0.22,0.74 -0.56,1.56 3.13,1.47 3.35,0.68 0.69,-0.08 0.51,-3.3 0.55,0.03 1.51,2.62 0.46,0.24 1.78,-0.9 2.52,-2.08 4.53,-1 1.55,0 2.56,-1.1 1.74,-1.34 5.36,-1.42 0,0 2.72,2.46 0.02,0.38 -1.43,1.06 -0.48,2.52 0.1,0.33 1.63,0.84 -0.06,0.94 -0.23,0.38 -1.59,1.03 -1.19,3.83 -0.05,1.55 0.62,3.52 1.7,3.46 3.21,2.62 0.05,0.47 -0.72,1.42 -0.1,0.67 0.67,1.72 0.23,1.28 -0.25,0.77 -1.48,1.97 0,0 -1,1.01 -3.23,-0.34 -0.9,-1.76 -2.42,-1.48 -1.17,1.49 0.58,3.77 -0.57,0.54 -0.4,0.13 -2.78,-1.14 -1.17,0.23 -0.37,0.28 -0.72,3.18 0.72,0.1 0.49,1.16 -0.57,0.94 -0.73,0.7 0.04,1.9 0.42,0.61 0.53,0.19 0.69,4.26 -0.53,0.53 -3.36,0.9 -2.29,1.51 z" id="go" title="Goiás"></path>
+                  <path d="m 458.83257,129.18114 -0.04,0.33 -2.04,2.15 -0.43,0.17 -0.04,1.44 1.97,-1.7 0.68,-1.21 2.12,-1.58 0.89,-1.14 1.03,-6.33 1.15,-0.7 1.11,-0.12 1.67,-0.92 0.65,-0.13 0.46,0.12 0.08,1.63 -0.2,0.45 -1.42,1.87 -3.21,1.75 -0.03,0.72 0.73,0.12 0.45,-0.81 1.15,-0.31 0.22,0.83 -0.59,0.51 0.25,0.3 4.21,-4.97 0.86,0.33 2.58,-0.93 4.04,0.43 -0.46,-2.41 0.61,-0.23 2.42,0.08 1.78,0.38 2.63,1.05 1.04,0.11 2.15,1.38 1.4,0.03 1.26,1.3 1.89,1.32 2.5,0.58 1.16,-0.19 0.56,0.76 0.34,0.05 1.59,-0.09 2.46,0.66 0.26,-0.9 -0.67,-0.47 1.67,-0.38 0.57,0.11 -0.09,0.42 0,0 -0.46,1.43 0.23,0.72 0.63,0.54 -0.38,1.53 -1.79,2.27 -4.13,3.97 -3.32,0.46 -0.8,-0.16 -2.92,3.4 0.04,1.8 -0.88,1.83 -1.89,1.85 -0.82,1.98 -0.64,0.17 -0.77,1.05 0.36,1.92 1.23,0.83 0.38,1.28 -0.28,1.46 -1.14,2.87 1.58,2.81 0.55,2.98 -0.11,2.43 -0.21,0.55 -4.1,4.42 -0.17,2.48 0.12,2.11 0.51,2.3 1.78,2.04 1.61,0.91 0.17,0.5 0.13,0.84 -0.39,2.2 -0.29,0.44 -0.12,1.21 -0.5,1.46 -1.21,1.31 -2.29,0.29 -0.65,-0.28 -0.83,0.04 -2.43,0.86 -1.52,0.11 -2.5,-1.82 -1.01,-0.21 -1.46,0.19 -1.01,0.6 -1.12,0.26 -0.23,-0.3 -0.84,0.24 -0.5,0.22 -1.9,1.91 0.01,0.46 -0.63,0.87 -2.01,2 -2.34,0.91 -2.87,2.56 -1.33,0.53 -1.05,0.04 -1.7,1.53 -1.08,0.36 -2.61,0.32 -2.72,0.76 -2.13,1.95 -0.98,2.97 -0.39,2.97 -0.63,2.32 -1.45,2.74 -0.3,0.22 -0.34,0.82 -0.13,1.52 -1.2,2.48 -1.7,1.4 -0.73,2 0.71,1.94 0.47,3.18 1.73,3.06 -0.04,0.52 -0.76,1.4 -0.13,6.36 -1.15,2.45 -0.26,1.06 -0.05,1.92 0,0 -1.28,-0.66 -0.61,-0.82 -0.82,-0.45 -0.99,-0.29 -1.78,0.2 -0.71,-0.18 -1.35,-2 -0.99,-2.86 -2.13,-1.62 -0.14,-1.65 1.64,-1.81 -0.08,-0.53 -3.88,-1.95 -0.62,-1.05 -0.06,-1.66 -0.75,-1.59 -0.94,-0.69 -2.08,-0.28 -0.2,-0.42 0.26,-0.71 2.63,-2.54 -0.37,-1.31 0.73,-2.68 0.69,-1.43 0.57,-0.55 1.34,-0.54 3.39,-0.35 -0.39,-1.35 0.64,-3.25 -0.08,-1.76 -1.8,-1.21 -4.27,0.94 -2.15,1.34 -2.27,-3.02 -0.91,-0.85 -3,-4.15 -0.88,0.07 -0.84,-1.44 0.61,-1.19 -0.11,-0.88 -0.25,-0.34 -1.37,-0.24 -0.42,0.27 -1.93,-1.33 0.18,-0.71 1.76,-0.66 1.75,-2.04 0.25,-1.59 -0.28,-1 0.31,-2.36 1.77,-6.16 0.01,-0.43 -0.68,-1.14 -0.23,-1.08 0.21,-3.72 -0.64,-1.5 -0.47,-3.49 -0.84,-1.03 -3.4,-1.44 -1.22,-0.02 -0.28,-0.32 -0.08,-1.03 -0.59,-0.69 -1.74,-0.29 -0.96,0.52 -1.4,-0.09 -2.78,-1.51 -0.86,-0.06 -1.96,0.53 -2.62,1.85 -0.53,0.64 0,0 -0.49,-0.08 14.71,-11.83 2.35,0.23 1.17,-0.92 1.55,-2.17 0.43,-1.15 1.55,-1.17 0.62,-2.88 1.12,-0.46 2.44,-2.32 0.47,-1.21 0.29,-1.9 1.6,-4.69 1.96,-1.54 1.48,-1.76 0.83,-1.45 0.46,-1.28 -0.18,-1.82 0.79,-0.81 -1.04,-1.58 3.68,-3.09 -0.13,-1.64 0.5,-2.38 1.74,-1.57 0.36,-0.71 0.9,-3.02 0.08,-1.61 -0.43,-0.53 -0.99,0.16 -0.27,-0.49 0.05,-0.62 1.14,-0.15 0.57,-0.74 0.71,-4.39 -0.16,-1.38 0.47,-1.03 0.77,-0.45 0,0 0.63,0 0.24,-0.24 -0.06,-0.54 0.34,-0.749996 0.58,-0.53 1.34,0.98 0.45,1.839996 1.19,0.12 0.77,-1.36 0.61,2.93 0.99,0.04 0.29,-0.49 0.07,-0.94 0.85,-0.04 1.69,0.53 0.5,0.69 -1.43,1.7 0.67,0.7 0.02,0.55 1.21,-2.04 0.49,-1.54 0.45,0 0.4,1.02 0,0.58 -0.87,0.92 -0.27,0.99 0.08,2.71 0.26,0.33 0.47,0.12 0.58,-0.14 0.96,-0.93 -0.47,-1 0.14,-0.6 1.32,-1.43 1.05,-0.25 2.13,0.59 1.5,-1.11 0.05,0.92 -0.36,0.21 -1.13,1.53 0.59,0.58 0.1,-0.37 1.25,-0.6 0.58,0.79 -0.14,1.21 1.63,1.75 0.86,-0.44 1.58,0.67 0.77,2.4 -0.11,0.95 -2.19,2.73 -0.38,0.89 0.1,0.66 0.6,-1.03 1.75,-1.68 0.83,-0.03 0.87,0.81 0.52,1.89 -0.27,1.23 -0.97,0.19 -1.03,0.91 -1.16,1.49 0.07,0.77 -1.16,2.35 -0.62,3.52 0.21,0.34 0.87,0.23 z m 0.52,0.45 -0.06,-0.79 0.53,-1.53 -0.41,-1.07 0.13,-0.66 0.91,-1.24 0.55,-0.19 0.05,2.35 -0.22,1.34 -0.8,0.6 -0.68,1.19 z m -6.3,-25.76 -0.44,-0.46 -0.08,-0.6 0.8,-1.12 0.84,-0.03 0.68,0.42 0.1,0.34 -0.19,0.36 -1.71,1.09 z m 3.5,4.18 -0.29,-0.3 0.06,-0.53 1.06,-0.89 0.48,0.07 0.5,0.85 -0.14,0.61 -0.4,-0.17 -1.27,0.36 z m -14.16,-4.81 -0.21,-0.05 0.95,-3.579996 0.3,0.09 0.03,0.23 -0.41,3.059996 -0.66,0.25 z" id="ma" title="Maranhão"></path>
+                  <path d="m 207.22257,296.31114 1.47,-1.43 4.11,-2.57 0.52,-2.45 1.43,-3.78 0.93,-1.08 1.64,-0.53 0.43,-0.41 0.58,-0.84 0.52,-2.25 1.66,-2.01 0.56,-2.24 0.07,-1.71 -0.58,-1.49 0.04,-2.05 -1.53,-3.34 -0.9,0.03 -0.58,-0.51 -0.43,-3.25 0.14,-1.32 1.36,-1.08 1.4,-1.75 0.17,-0.75 -1.41,-3.59 -1.07,-0.43 -1.11,-0.11 -3.5,0.09 -1.22,-1.11 0.24,-0.56 -17.16,-0.05 0.9,-9 -1.5,-2.75 -0.27,-1.76 0.03,-0.8 1,-3.52 -0.38,-1.93 0.94,-1.67 -0.83,-2.27 -0.15,-1.39 -0.26,-0.61 -0.78,-0.47 -0.06,-0.35 1.29,-4.99 0.76,-1.42 -0.6,-1.24 -1.4,-0.97 0,0 47.85,-0.32 1.21,-0.73 1.18,-5.22 1.38,-4.22 -0.46,-1.94 -0.66,-1.37 -0.1,-0.85 0.42,-0.85 0.86,-0.64 1.2,-1.82 0.27,-1.01 -0.34,-0.84 0.06,-0.76 0.2,-0.61 1.18,-1.2 0,0 1.17,1.08 2.45,4.06 0.4,1.76 1.37,3.96 1.32,1.93 0.77,1.62 -0.23,2.44 0.48,2.4 0.73,2.2 1.53,1.11 3,2.75 3.38,1.7 0.23,0.94 -0.04,1.1 0.23,0.49 0.95,0.4 0.82,-0.17 1.63,0.45 0.54,0.72 0.2,1.08 0.35,0.32 1.37,-0.45 3.69,1.49 34.04,2.42 62.97,3.48 0,0 -0.65,1.02 -0.56,1.89 -1.1,1.25 -0.44,3.14 -0.43,0.85 -0.37,0.27 -1.94,5.29 -0.54,2.97 -0.04,2.95 -1.88,5.99 0.06,0.86 1.39,1.34 -0.16,0.87 -0.82,0.89 -0.05,0.5 1.1,2.25 -0.47,3.31 0.01,1.57 0.52,0.58 0.44,3.05 -0.74,2.76 0.98,3.34 0.96,0.51 0.8,0.02 0,0 0.08,0.63 -0.27,1.13 -0.97,0.86 -0.35,0.9 0.16,2.72 -0.39,1.07 -2,3.17 -1.03,2.63 -1.21,0.78 0.12,5.18 -1.6,3.09 -0.58,2.74 0.48,1.14 0.01,0.8 -1.17,2.87 -0.84,2.93 -1.39,1.43 -1.21,0.73 -1.23,-0.68 -1.07,0.26 -1.65,1.01 -1.92,1.94 -0.38,0.74 -0.64,4.1 -0.71,0.96 -1.98,4.19 -0.32,0.28 -2.72,0.86 -2.65,0.13 -1.4,2.62 -1.75,0.97 -0.08,1.54 -0.82,1.43 -1.28,1.04 -0.5,1.01 -0.33,1.95 -1.25,2.02 -1.92,1.77 -2.02,0.84 -0.7,0.77 -0.38,2.91 -2.55,3.85 -0.4,3.41 0.16,0.71 1.41,2.19 0.18,3.43 0.95,2.2 0,0 -1.55,0.31 -1.17,-0.57 -0.87,-0.08 -2.66,0.08 -0.57,0.57 -4.62,-0.27 -1.74,-1.27 -1.3,-0.11 -0.15,-0.53 0.19,-0.46 1.66,-2.83 1.8,-0.7 1.23,-6.61 -1.34,0.13 -5.62,6.01 -1.01,-0.06 -2.13,0.88 -0.99,-0.04 -0.24,-0.25 -0.3,-1.37 -1.59,-1.04 -2.44,-0.07 -1.43,0.61 -0.49,0.85 -1.26,0.8 -4.52,0.63 -1.24,-0.57 -1.26,-1.11 -3.03,-1.16 -0.78,-1.02 -0.27,-0.86 -0.65,-0.35 -2.62,-0.47 -2.79,-1.25 -0.76,-1.15 -1.27,-0.2 -2.02,0.49 -1.35,1.25 -1.66,0.51 -0.77,-0.34 -1.56,0.22 -2.59,-0.03 -1.4,1.45 -0.09,1.17 -2.02,2.95 -2.05,2 -5.62,1.97 -2.15,-1.52 -1.02,-1.1 -0.7,-0.2 0,0 -0.66,-0.67 -0.32,-0.8 0.54,-0.71 -2.44,-2.15 -1.28,0.63 -0.52,-0.05 -1.17,-0.68 -0.45,-0.7 -2.02,-1.41 -1.89,-0.76 -0.3,-0.32 -0.3,-1.12 -0.23,-2.93 -0.61,-1.77 -0.19,-3.66 0.88,-1.64 1.14,-1.09 0.34,-1.78 -0.05,-1.89 -0.96,0.06 -0.4,0.6 -0.38,0.16 -26.86,-1.08 -1.05,-12.65 -5.37,-6.13 4.88,-0.06 -0.35,-7.55 -2.64,-5.32 -0.49,-1.97 0.26,-1.06 0.61,-0.55 0.65,-1.28 -1.44,-2.93 -3.11,-1.04 z" id="mt" title="Mato Grosso"></path>
+                  <path d="m 359.21257,400.07114 -0.4,2.46 -0.28,0.4 -1.5,0.78 -1.32,0.04 -0.47,0.22 -1.22,1.03 -1.99,2.68 -0.73,0.65 -1.01,0.3 -0.62,1.68 -0.16,2.93 -2.59,3.64 -0.96,0.52 -0.23,0.38 0.31,1.93 -0.08,0.95 -1.21,2.34 -2,2.26 0.35,0.85 -0.28,1.21 -1.44,1.03 -0.4,1.21 -1.73,1.69 -1.26,2.44 -1.95,1.87 -7.56,4.53 -1.26,1.14 -0.74,1.54 -0.84,1.08 0,0 -5.41,2.27 -1.11,0.82 -0.93,2.33 0.02,1.15 -1.45,3.56 -0.67,0.68 -1.66,1.01 -1.11,0.32 -0.33,0.35 -1.57,7.92 -0.36,0.82 -2.38,1.56 0,0 -2.55,-2.33 -3.41,-1.89 -3.99,1.97 -0.68,0.75 -1.66,0.49 -2.58,0.43 -2.36,-0.46 -1.01,-0.65 -0.47,-4.27 -0.32,-0.7 -0.9,-0.95 -0.23,-2.47 0.51,-1.34 -0.64,-0.79 -0.09,-0.44 0,-2.87 -0.89,-1.97 -0.6,-2.74 -0.05,-0.72 0.59,-1.36 0.02,-1.61 -1.57,-1.09 -0.38,-0.8 -0.16,-2.16 -1.65,-1.82 -2.17,-0.26 -1.51,0.31 -1.83,-0.29 -2.46,-1.96 -0.56,-1.49 -1.54,0.33 -2.17,2.74 -1,-0.6 -1.72,0.81 -1.08,0.16 -1.74,-0.69 -2.56,-0.49 -3.46,0.23 -3.66,-0.71 -0.48,-0.91 -1.99,-0.13 -0.89,0.52 -2.5,-0.88 0.91,-7.27 -0.43,-2.38 0.6,-1.42 0.98,-1.46 0.6,-6.03 -0.66,-2.33 -0.05,-1.73 -0.76,-0.96 -0.43,-0.09 -0.49,0.65 -0.64,-3.26 -0.79,-1.87 -1.21,-2.02 -0.35,-1.83 4.03,-2.3 0.76,-0.88 -4.2,-3.86 5.38,-11.42 1.12,-0.06 -0.28,-2.13 -0.74,-0.13 3.23,-10.33 0.66,-1.16 -3.09,-5.85 0.03,-1.91 0,0 0.7,0.2 1.02,1.1 2.15,1.52 5.62,-1.97 2.05,-2 2.02,-2.95 0.09,-1.17 1.4,-1.45 2.59,0.03 1.56,-0.22 0.77,0.34 1.66,-0.51 1.35,-1.25 2.02,-0.49 1.27,0.2 0.76,1.15 2.79,1.25 2.62,0.47 0.65,0.35 0.27,0.86 0.78,1.02 3.03,1.16 1.26,1.11 1.24,0.57 4.52,-0.63 1.26,-0.8 0.49,-0.85 1.43,-0.61 2.44,0.07 1.59,1.04 0.3,1.37 0.24,0.25 0.99,0.04 2.13,-0.88 1.01,0.06 5.62,-6.01 1.34,-0.13 -1.23,6.61 -1.8,0.7 -1.66,2.83 -0.19,0.46 0.15,0.53 1.3,0.11 1.74,1.27 4.62,0.27 0.57,-0.57 2.66,-0.08 0.87,0.08 1.17,0.57 1.55,-0.31 0,0 0.19,1.77 -0.26,2.58 0.23,1.11 0.28,0.41 0.66,0.19 1.14,-0.67 2.25,0.9 0.08,0.42 -1.31,1.76 -0.57,1.17 -0.26,0.84 0.13,0.33 3.8,0.7 2.78,-0.16 2.7,1.68 1.14,0.17 1.44,0.71 0.67,0.61 3.07,1.56 0.68,0.85 3.35,1.34 1.49,0.04 1.9,0.43 1.62,1.55 3.15,0.61 2.66,2.24 0.24,0.45 0,0 -0.58,0.25 -0.99,4.18 0.59,3.21 z" id="ms" title="Mato Grosso do Sul"></path>
+                  <path d="m 527.76257,365.59114 -0.91,-0.55 -2.54,-0.81 -1.58,0.08 -1.08,0.32 -0.84,0.61 -2.18,0.29 -1.34,-0.13 1.67,2.27 -0.02,0.81 -1.13,-0.11 -1.05,-0.74 -0.31,0.02 -2.17,1.31 -1.17,1.93 0.3,0.7 1.33,0.67 0.52,0.66 -0.03,1.92 -0.3,1.54 0.21,0.41 1.31,0.35 0.17,1.72 -0.32,0.42 -0.95,0.24 -0.97,-0.03 -0.8,-0.35 -1.48,0.09 -0.43,0.55 0.49,0.71 0.76,0.28 0.45,-0.29 0.52,0.09 1.1,1.27 1.27,2.81 0.29,2.43 -0.54,2.97 -1.71,2.09 -1.24,0.86 -0.26,0.44 -0.24,1.72 -0.88,2.29 -1.11,1.27 -0.97,3.24 -0.55,0.32 -5.15,-0.03 -1.72,2.06 -0.16,0.42 0.59,3.12 -0.57,1.3 -0.44,2.34 0.29,0.14 0,0 -2.53,2.35 -1.24,0.27 -0.56,0.5 0.74,0.7 -2.36,6.05 -1.9,3.71 -0.09,0.75 1.44,0.13 0.29,0.61 -0.21,0.52 -2.53,0.98 -9.51,4.53 -1.37,0.2 0.02,-0.46 -0.49,-0.17 -2.53,-0.27 -0.57,0.06 -1.62,0.94 -1.25,0.16 -3.2,0.08 -0.36,-0.32 -0.51,0.08 -4.1,1.78 -1.05,0.77 -1.71,0.77 -0.5,-0.28 -2.59,0.17 -2.91,1.34 -2.42,0.74 -0.68,0.49 0,0 -1.25,0.73 -2.2,0.22 -1.93,1.02 -1.23,1.24 -1.79,0.67 -2.38,0.25 -2.34,-0.08 -0.01,-0.49 0.35,-0.49 -0.09,-0.35 -1.19,0.33 -0.18,2.3 0.24,0.23 -0.05,0.84 -0.75,0.98 -1.3,0.32 -0.57,-0.43 -3.61,1 -0.19,-0.53 -2.01,0.24 -1.12,-0.25 -2.03,-3.31 1.22,-0.71 -0.52,-1.71 -1.8,-0.83 -1.79,-1.23 -0.71,-1.61 0.53,-1.56 0.19,-3.45 -0.26,-2.94 1.86,-2.72 0.7,-2.18 0.05,-1.27 -0.23,-0.37 -3.7,-1.32 -1,0.05 -0.28,0.36 -0.78,0.31 -1.61,0.05 0.03,-0.85 -0.83,-1.99 -1.3,-1.79 -0.37,-2.21 -0.31,-0.62 -0.79,-0.74 0.19,-1.94 1.52,-2.03 0.06,-0.56 -0.4,-1.55 -1.88,-1.21 -0.58,-0.61 0.29,-2.37 0.57,-1.01 -0.2,-1.04 -3.27,-3.35 -1.3,0.29 -0.85,0.64 -1.65,-0.78 -2.38,0.11 -0.31,0.61 0.2,0.46 -0.44,0.99 -2.78,0.68 -1.11,-0.43 -1.51,-1.45 -1.01,1.25 -8.18,0.68 -0.46,0.48 -0.48,1.19 0.27,2.54 -0.41,0.44 -1.19,-0.52 -0.01,-2.78 -0.25,-0.96 -0.36,-0.39 -0.56,-0.05 -0.26,0.19 -0.41,1.13 -0.67,0.94 -0.54,0.32 -0.62,-0.02 -1.21,-2.1 -0.33,-1.42 0.14,-0.91 -1.68,-0.79 -2.18,-1.42 -1.99,0.59 -1.62,-0.22 -1.67,0.35 -4.29,-0.96 -2.55,-0.08 -1.73,-1.55 -0.75,-0.14 -1.5,0.61 -1.43,1.69 -1.92,0.37 -2.15,1.11 -1.22,1.13 0,0 0.31,-2.62 -0.59,-3.21 0.99,-4.18 0.58,-0.25 0,0 0.86,0.46 0.36,-0.23 0.01,-0.34 -0.56,-0.61 0.57,-1.9 1.64,-2.1 0.94,-0.74 0.45,-0.14 0.84,0.16 0.82,-0.28 0.84,-1.3 -0.06,-1 1.21,-2.46 1.41,-2.1 2.23,-0.54 2.48,-0.96 3.71,0.62 3.19,-1.64 1.52,0.3 1.31,1.42 0.33,0 2.91,-2.92 4.13,-2.64 2.01,0.89 3.86,-0.16 1.48,0.28 1.75,-0.01 0.58,-0.09 0.55,-0.48 4.35,1.86 0.7,0.77 4.89,-2.74 0.48,-1.12 0.86,-0.9 1.16,-0.2 3.09,-2.06 -1.19,-3.46 0.51,-1.89 0.73,-0.9 0.17,-0.71 -0.18,-1 -0.47,-0.61 -1.58,-0.57 -0.9,0.47 -1.09,-1.11 0.43,-2.14 3.24,-3.01 2.32,-2.71 0,-0.6 -1.65,-4.56 -1.42,-1.03 -0.85,-0.34 -0.85,-1.21 0.41,-1.47 1.04,-1.25 0.68,-1.59 -0.31,-1.57 0.53,-1.52 1.27,-0.12 2.29,-1.51 3.36,-0.9 0.53,-0.53 -0.69,-4.26 -0.53,-0.19 -0.42,-0.61 -0.04,-1.9 0.73,-0.7 0.57,-0.94 -0.49,-1.16 -0.72,-0.1 0.72,-3.18 0.37,-0.28 1.17,-0.23 2.78,1.14 0.4,-0.13 0.57,-0.54 -0.58,-3.77 1.17,-1.49 2.42,1.48 0.9,1.76 3.23,0.34 1,-1.01 0,0 0.51,2.41 -1.43,3.44 0.4,0.23 1.34,-0.91 0.7,-1 0.72,-0.13 2.13,0.38 1.04,-0.77 1.85,-2.57 0.99,0.15 1.43,-0.53 1.81,-1.55 0.95,-1.17 2.02,-0.41 3.37,-1.86 0.64,-1.11 4.27,-3.03 3.82,-1.58 1.8,0.09 1.2,0.5 2.18,0.03 2.28,0.53 0.85,0.46 -1.29,2.74 -0.15,0.89 0.26,1.49 0.61,0.5 5.33,1.46 0.64,-0.17 0.81,-1.12 1.88,-0.89 1.77,-0.26 2.73,0.75 1.1,0.54 4.35,3.64 0.98,-0.18 2.17,1.62 2.53,1.22 0.93,0.22 0.51,-0.21 1.53,1.24 4.39,-1.23 0.38,0.18 6.52,6.2 0.44,3.96 0.57,-0.21 2.61,0.45 1.47,-0.5 1.32,-0.99 1.99,0.15 2.73,0.56 2.26,1.08 2.19,0.61 2.12,-0.03 2.83,2.47 0.73,0.38 0.89,0.07 0.78,1.02 0.42,1.17 -1.47,3.08 -4.96,4.22 -0.15,2.65 0.56,1.02 0,0.42 -1.02,0.71 -2.48,-0.24 -0.82,0.88 -0.82,3.3 -0.53,4.4 0.22,0.25 0.35,-0.19 0.2,-0.45 0.64,-0.24 0.58,1.23 -0.22,1.51 0.15,0.51 4.14,3.06 0.53,1.04 0.01,0.53 -0.68,1.35 z" id="mg" title="Minas Gerais"></path>
+                  <path d="m 371.29257,235.50114 -62.97,-3.48 -34.04,-2.42 -3.69,-1.49 -1.37,0.45 -0.35,-0.31 -0.2,-1.09 -0.55,-0.72 -1.63,-0.45 -0.82,0.17 -0.95,-0.39 -0.23,-0.5 0.04,-1.1 -0.23,-0.94 -3.38,-1.7 -3,-2.76 -1.54,-1.11 -0.72,-2.2 -0.48,-2.39 0.23,-2.44 -0.77,-1.63 -1.33,-1.93 -1.37,-3.95 -0.39,-1.76 -2.45,-4.06 -1.18,-1.08 0,0 -0.57,-0.56 -0.15,-1.96 -0.64,-1.26 -1.59,-1.56 -1.07,-0.58 -0.37,-0.57 -0.83,-2.34 0.03,-1.13 0.58,-0.97 1.45,-1.13 0.78,-1.31 29.9,-64.24 -1.81,-1.67 0.13,-0.78 -0.19,-0.48 -1.39,0.35 -0.85,0.61 -1.87,-0.78 -1.1,-2.17 -2.69,-1.45 -1.27,-1.34 -0.08,-0.6 -1.32,-0.82 -1.37,-0.15 -2.25,-0.65 -2.38,-1.31 -1.88,-0.67 -1.35,-1.09 -0.63,-0.9 -4.58,-2.54 -4.64,-3.769996 -0.3,-0.44 -0.04,-0.93 -0.55,-1.83 -1.84,-1.23 -0.7,0.19 -0.36,-0.2 -1.83,-1.98 0.05,-2.11 0.35,-0.69 -0.18,-0.41 -1.69,-0.85 -0.24,-0.68 -0.18,-2.27 0.43,-1.45 -0.4,-4.86 0,0 -1.59,-16.97 0,0 0.75,0.32 0.43,0.58 -0.02,0.48 0.45,0.4 0.92,0.28 1.37,-0.71 0.47,-0.81 2.71,0.23 0.81,-1.05 -0.54,-1.81 1.79,-0.36 1.41,-1.63 2.64,1.01 1.88,0.03 0.54,-1.52 3.33,-1.62 1.97,0.39 1.16,-0.11 0.49,-0.25 1.2,-1.48 0.4,-1.4 1.46,-1.1 0.86,-0.11 0.65,0.46 2.11,-1.13 0.41,0.11 0.37,0.99 0.73,0.45 2.03,0.48 1.61,0.25 0.56,-0.6 1.67,-0.39 0.78,0.28 0.82,-0.01 0.86,-0.34 2.24,0.3 4.67,1.38 0.96,-0.14 1,-0.87 -0.03,-2.28 -2.07,-2.5 -1.24,-0.63 0.49,-1.68 1.31,-1.45 0.28,-1.11 0.31,-0.17 0.71,0.19 0.83,0.76 2.35,1.11 11.62,-2.33 1.57,1.69 1.02,0.06 0.44,-0.29 0,0 0.62,0.57 0.37,2.3 -0.62,1.3 -0.25,4.54 0.24,1.44 0.31,0.54 1.17,0.02 1.08,-0.29 3.39,0.37 1.29,0.49 1.93,1.05 0.67,0.8 0.49,1.28 1.19,0.12 1.14,0.84 0.8,0.98 0.84,0.27 1.33,-0.14 0.38,-0.42 0.94,-0.14 2.84,2.66 0.68,-0.03 0.49,1.18 -0.68,0.23 -0.19,0.72 0.76,2.83 2.02,2.26 2.57,0.73 0.17,0.33 -0.43,3.14 0.19,2.11 0.67,1.51 0.62,0.56 0.59,1.81 -0.13,1.58 1.5,3.48 0.82,0.19 0.78,-0.36 2.93,3.28 -0.08,2.43 0.41,0.94 0.95,0.19 0.33,0.47 0.31,1.58 -0.21,0.69 0.11,1.3 1.87,1.39 0.43,1.5 1.45,1.03 2.79,0.679996 1.3,-0.12 0.77,-0.339996 0.94,0.06 0,0 -0.53,0.739996 0.29,1.59 -0.17,0.53 -1.29,1.11 -1.39,0.17 -0.5,-0.18 -0.84,-0.79 -0.66,-0.15 -3.38,1.58 -0.37,0.54 -1.6,0.72 -0.63,-0.02 -1.55,0.59 0.04,0.58 6.46,-1.06 0.88,0.66 0.13,0.46 0,0.66 -0.62,0.5 0.3,0.36 0.63,-0.2 0.86,-1 1.02,-0.01 0.53,-0.27 0.6,0.12 1.07,-0.42 1.14,-0.57 3.28,-2.34 1.5,-0.35 1.84,-0.81 3.16,-1.84 0.54,-0.999996 0.67,-0.52 2.09,-1.01 0.66,-0.72 -0.25,-0.67 0.21,-0.41 1.13,-0.28 1.09,0.06 0.41,0.21 0.38,3.799996 -0.52,2.58 0.33,1.62 0.81,1.6 1.31,1.35 0.3,1.64 -0.12,0.47 -1.84,1.84 -0.47,0.13 -0.87,-0.52 -1.82,-0.52 -1.26,-0.31 -0.93,0.14 -2.13,-1.04 -0.26,-1.12 -0.88,-0.53 -2.28,3.82 -0.61,2.37 0.68,2.97 0.48,0.64 0.92,0.62 -1.01,-1.14 -0.43,-2.69 0.12,-0.52 2.57,-4.22 2.31,1.18 0.11,0.45 2.53,2.45 -0.25,2.02 -0.74,0.55 0.4,2.33 0.52,1.13 1.12,0.75 0.74,0.15 0.52,0.49 -0.34,-0.64 -0.77,-0.24 -1.2,-1.04 -0.22,-0.68 0.34,-4.2 0.82,-1.19 1.43,0.73 0.83,1.2 -0.09,0.79 1.2,0.86 0.25,-0.29 -1,-1.26 -0.92,-2.1 0,-0.44 2.26,-2.32 1.62,0.09 1.93,0.64 0.34,0.56 -0.61,0.59 0.32,0.28 0.48,0.03 1.03,-0.17 1.33,-0.9 4.09,-0.96 0.77,0.2 1.74,1.06 3.17,-0.42 1.07,-0.41 1.02,-1.01 0.98,-0.59 1.74,-0.51 0.77,0.07 0.06,0.75 -2.04,4.02 -0.24,1.5 -0.46,1.07 -0.83,1.03 -0.01,0.88 0.58,1.42 -0.32,2.47 0.88,-1.19 0.01,-1.4 1.54,-3 1.13,-3.19 1.12,-1.56 0.27,-0.27 0.76,-0.05 0.58,-0.35 1.82,-0.23 0.88,-1.35 1.51,-1.69 1.36,-2.26 0.52,-0.46 0.79,0.49 0.62,-0.46 1.62,2.34 1.19,0.59 -0.05,-0.74 -0.35,-0.75 0.62,-1.01 3.51,-0.51 -1.03,-0.32 -3.51,0.46 -0.31,-0.21 0.29,-2.43 0.51,-0.29 0.67,0.38 1.02,0.11 1.07,-3.099996 -0.68,-1.39 0.03,-0.68 1.17,-1.81 2.84,-2.48 0.36,-0.08 1.11,1.14 2.93,-2.09 0.46,-0.07 0.4,0.45 0.1,0.57 -0.32,0.67 1.07,-0.16 0.81,-0.58 0.36,-0.78 0.63,-0.19 0.28,0.15 0.74,1.39 1.33,1.2 0.2,-0.56 -0.11,-0.38 -0.96,-0.49 -0.14,-0.29 -0.13,-1.2 0.17,-0.42 0.44,-0.19 2.28,0.26 1.18,0.65 0.62,1.02 1.63,0.71 1.65,-0.78 0.53,2.14 -0.5,0.31 -0.03,0.59 0.92,-0.52 1.16,-2.35 0.38,0.23 -0.23,1.33 0.41,0.44 2.51,-0.26 0.45,0.65 0.46,1.68 -0.6,0.95 0.85,-0.5 0.26,0.37 1.89,0.14 3.53,-1.24 -0.31,1.58 -0.75,1.829996 1.47,-0.489996 0.59,-0.62 0.63,1.619996 0,0 -0.77,0.45 -0.47,1.03 0.16,1.38 -0.71,4.39 -0.57,0.74 -1.14,0.15 -0.05,0.62 0.27,0.49 0.99,-0.16 0.43,0.53 -0.08,1.61 -0.9,3.02 -0.36,0.71 -1.74,1.57 -0.5,2.38 0.13,1.64 -3.68,3.09 1.04,1.58 -0.79,0.81 0.18,1.82 -0.46,1.28 -0.83,1.45 -1.48,1.76 -1.96,1.54 -1.6,4.69 -0.29,1.9 -0.47,1.21 -2.44,2.32 -1.12,0.46 -0.62,2.88 -1.55,1.17 -0.43,1.15 -1.55,2.17 -1.17,0.92 -2.35,-0.23 -14.71,11.83 0.49,0.08 0,0 2.29,0.81 1.87,-0.24 1.29,0.12 1.02,1.66 0.39,0.31 0.87,0.14 1.26,1.17 -0.04,0.63 -0.37,0.67 -0.72,0.37 -0.97,0.07 -0.29,0.28 0.09,1.41 1.01,1.34 -0.92,2.75 -0.64,0.48 -1.46,0.46 -0.25,0.46 0.29,1.2 -0.19,1.34 -1.3,0.15 -1.51,1.34 -0.85,1.27 0.15,1.51 -0.24,0.5 -2.5,1.2 -3.41,1.14 -2.47,1.78 -0.19,0.35 0.43,2.19 0.06,2.67 -1.28,2.1 -1.41,1.68 -0.15,0.57 0.17,0.88 0.59,0.96 1.67,1.74 0.75,0.32 0.15,0.3 -0.66,4.04 -1.76,5.15 -1.08,0.81 -1.7,3.24 -0.18,0.99 -0.94,1.54 -0.74,0.85 -1.05,0.16 -1.37,0.92 -1.03,1.92 -1.21,1.68 -1.18,1.09 -1.15,1.58 -1.13,4.46 -1.6,3.66 z m 21.16,-130.31 -4.52,1.96 -3.39,0.52 -2.02,-0.31 -0.65,1.13 -1.84,1.19 -0.72,-0.61 -0.61,-1.53 -0.23,0.28 0.42,1.23 -0.34,0.81 -0.71,0.41 -3.77,-1.64 -0.8,0.72 -4.19,1.26 -3.2,-0.57 -0.81,-0.61 -0.24,-1.85 -0.23,-0.41 -1.11,-1.02 -1.06,-1.6 -0.21,-1.78 0.52,-2.75 0.62,-0.379996 1.76,0.359996 0.93,-0.749996 0.08,-0.56 -1.3,0.43 -1.22,-0.13 -0.94,-0.71 -0.18,-1.05 0.34,-5.08 0.73,-0.76 0.35,0.75 1.76,0.6 0.55,-0.06 -0.46,-0.42 -1.27,-0.22 -0.9,-2.16 0.36,-1.68 0.89,-1.97 1.33,-1.33 0.96,-0.57 1.34,-0.49 1.32,-0.13 3.46,0.52 7.21,1.77 3.7,-0.46 0.11,-0.3 1.14,-0.62 2.16,-0.37 2.89,0.29 2.8,0.82 6.48,0.85 0.63,0.47 -0.05,1.23 -0.7,0.74 -0.68,1.5 -0.36,2.65 -0.86,3.3 -1.29,0.68 -0.35,0.69 0.23,1.19 -1.98,2.579996 -1.39,3.5 -0.49,0.45 z m -47.21,-0.17 -0.75,-0.51 1.1,-2.25 -0.09,-1.79 0.25,-0.21 2.33,-0.479996 0.9,-0.86 0.15,-0.5 -0.2,-2.34 0.86,-2.58 1.26,-1.49 2.29,-1.47 2.87,-0.2 0.72,2.36 -1.1,2.19 -0.85,3.04 -1.1,0.67 -1.34,2.029996 -0.78,0.72 -4.94,3.31 -1.58,0.36 z m 28.48,-22.899996 -1.03,-0.25 -2.45,0.08 -0.79,-0.16 -0.29,-0.26 -0.38,-1.09 0.01,-1.24 1.51,-0.42 1.89,0.04 2.19,-1.29 4.81,-0.6 0.77,0.26 0.68,0.68 -0.18,1.02 -2.56,1.39 -1.78,2.48 -1.1,0.5 -1.3,-1.14 z m 4.79,0 1.86,-1.2 1.98,0.03 1.65,0.62 0.53,0.99 0.05,0.62 -0.88,0.77 -2.85,0.28 -1.17,0.32 -2.26,-0.89 -0.2,-0.53 1.29,-1.01 z m -16.98,4.39 -0.5,-0.26 -0.61,0.04 -1.54,-0.69 0.21,-1.16 0.64,-0.92 1.92,-0.4 2.36,-0.9 1.32,0.08 0.8,0.68 0.09,0.13 -1.93,1.61 -1.07,0.34 -1.69,1.45 z m 9.42,-9.69 -0.82,-0.3 -0.17,-1.66 0.15,-0.6 1.17,-1.31 2.45,-0.92 0.25,0.12 0.53,0.68 0.04,0.89 -1.95,1.99 -1.65,1.11 z m -13.83,20.22 -0.14,-0.41 0.19,-0.93 1.04,-2.81 2.59,-1.69 0.72,-0.28 0.69,0.14 -0.16,1.79 -1.56,0.44 -1.62,2.19 -1.75,1.56 z m 10.91,-17.57 -1.19,-0.31 -0.3,-0.48 0.88,-0.96 0.71,-3.95 0.89,-1.23 0.29,0.13 0.07,0.32 -0.02,2.48 0.6,1.87 -0.32,0.88 -1.03,0.4 -0.58,0.85 z m -14.81,10.19 -0.27,-0.19 0.12,-0.61 0.55,-0.36 1.19,-1.71 0.76,-1.54 0.73,-0.66 1.45,-0.54 -0.2,1.49 -0.4,1 -1.72,1.66 -2.21,1.46 z m 13.87,-7.03 -0.6,-0.15 -0.84,-0.71 -0.96,-1.64 -0.05,-0.38 0.23,-0.29 0.81,-0.58 1.85,0.84 0.29,0.43 0.24,2.09 -0.97,0.39 z m -5.38,30.559996 -0.65,-0.11 -0.88,-0.52 -0.69,0.46 -0.75,-0.28 -1.68,-1.74 0,-0.61 1.28,-0.01 3.06,1.32 0.31,1.49 z m -21.15,-5.54 0.04,-1.03 -0.2,-0.3 0.6,-0.99 2.36,-0.88 0.78,0.38 0.87,0.86 -0.29,0.35 -1.03,0.47 -2.54,0.41 -0.59,0.73 z m 12.7,-6.69 -0.18,-0.03 0.01,-0.35 0.54,-0.939996 1.79,-1.62 0.42,-1.24 0.05,-1.3 0.24,-0.3 0.32,0.44 0,1.51 -0.89,2.73 -0.62,0.649996 -1.68,0.45 z m 6.3,-9.899996 1.65,-2.96 0.88,-0.21 0.71,0.19 0.27,0.87 -0.58,0.71 -2.93,1.4 z m 31.42,18.969996 -0.84,-0.35 -0.34,-1.06 1.04,-1.72 1.07,-0.33 0.19,0.1 -0.02,0.74 -0.74,2.24 -0.36,0.38 z m -33.48,-19.469996 -0.54,-0.2 0.32,-2.04 1.33,-1.81 0.23,0.04 1.29,0.88 -0.01,0.25 -1.55,0.64 -1.07,2.24 z m 2.23,5.03 0.72,0.03 -0.4,0.45 -0.94,0.31 -0.11,1.12 -0.79,0.71 -1.69,0.84 -0.16,-0.18 0.27,-0.83 0.47,-0.63 1.73,-1.67 0.9,-0.15 z m -22.56,10.209996 -0.55,-0.19 -0.07,-0.35 0.43,-0.4 3.56,-1.6 0.54,0.7 -0.01,0.2 -1.4,0.73 -2.5,0.91 z m 63.53,-4.78 -1.03,-0.19 -0.82,-0.79 0.87,-1.249996 1.34,-0.01 0.19,1.19 -0.1,0.589996 -0.45,0.46 z m -37.25,-18.899996 -2.36,0.7 -0.59,0.01 -0.18,-0.21 1.03,-1.04 1.04,-0.51 1.04,0.17 0.44,0.34 0.15,0.23 -0.15,0.21 -0.42,0.1 z m -5.27,8.59 -0.08,-0.76 0.25,-0.5 2.48,-1.46 -0.9,2 -0.81,0.63 -0.94,0.09 z m 2.14,4.53 -0.45,-0.12 -0.07,-0.23 0.78,-1.5 1.19,0.02 -0.12,1.35 -1.33,0.48 z m 28.04,15.829996 -0.28,-0.23 0.9,-1.6 0.68,-0.4 0.23,0.75 0.51,0.37 -0.26,0.52 -0.43,0.34 -0.63,-0.18 -0.72,0.43 z m -26.66,-23.319996 -0.89,-0.07 0.02,-0.19 2.36,-1.84 0.04,0.96 -0.23,0.63 -0.25,0.34 -1.05,0.17 z m 67.46,10.22 -0.38,-0.53 0.19,-0.76 1.02,-0.91 0.25,0.15 0.23,1.75 -1.31,0.3 z" id="pa" title="Pará"></path>
+                  <path d="m 610.69257,199.41114 -2.5,-2.06 -0.82,-0.26 -2.65,-0.21 -2.31,1.07 -1.48,1.28 -0.45,1.8 -1.9,1.03 -2.01,0.45 -1.14,-0.02 0,0.6 -0.8,0.53 -2.18,0.29 -3.88,-0.26 -1.61,0.88 -0.55,0.64 -1.82,0.1 -0.89,0.69 -0.54,0.76 0.39,0.73 0.01,0.54 -0.4,0.48 -1.78,1.53 -1.34,0.16 -1.65,0.84 -1.6,-0.79 -0.95,-0.94 -0.35,-2.24 0.24,-0.49 -0.18,-0.3 -1.14,-0.32 -0.44,0.29 -1.51,0.25 0.04,-0.45 2.53,-2.64 0.17,-0.43 -0.72,-1.87 -0.04,-0.47 0.37,-0.78 3,-1.07 0.11,-0.3 -0.5,-1.39 -3.5,-1.92 -1.48,0.41 -2.22,1.26 -0.93,1.51 -1.48,0.87 -1.05,0.31 -2.7,1.88 -1.52,1.64 -1.63,0.23 -2.63,0.97 -0.77,-0.33 0.05,-0.68 -0.63,-1.24 -0.38,-0.08 -0.93,0.73 -1.51,0.32 -0.99,-0.33 -1.4,-1.91 -0.4,-0.09 0,0 -0.17,-0.25 1.19,-1.12 1.61,-3.49 -0.34,-1.19 -0.69,-0.08 -1.24,-0.89 0.02,-1.66 -0.35,-0.72 -0.58,-0.29 -0.24,-0.41 0.12,-0.93 0.17,-0.38 1.09,-0.63 0.66,-1.31 -0.52,-1.31 1.03,-3 0.84,-1.15 0.08,-0.54 0,0 0.57,-0.46 1.93,1.64 0.9,0.42 2.88,0.61 1.16,-1.13 3.23,-1.66 0.82,-0.71 0.1,-1.04 0.41,-0.95 3.18,-1.21 1.43,-0.12 3.26,-1.04 0.64,0.08 0.53,0.44 0.01,1.19 -2.99,3.21 -0.44,0.96 -0.38,1.74 -0.41,0.38 -0.85,0.25 -0.21,0.31 -0.08,1.72 3.53,0.52 0.32,0.23 0.31,1.38 0.29,0.23 3.15,-1.26 1.77,-0.08 1.95,0.3 0.89,1.17 -0.52,1.54 0.83,0.74 2.35,-0.93 0.5,-0.74 0.55,-1.21 -0.47,-0.94 -0.16,-1.42 0.48,-0.59 1.01,0.32 -0.53,-1.53 -0.72,-0.78 0.31,-1.48 1.82,-1.35 1.38,-0.05 0.42,0.39 -0.1,1 0.62,0.49 3.42,0.4 0.53,0.35 5.83,-0.39 2.17,0.3 2.46,1.1 1.04,-0.4 3.5,0.21 0.93,-0.24 0,0 0.09,2.4 1.45,4.39 0.06,0.64 -0.18,0.94 -0.37,0.45 -0.03,0.88 0.58,-0.74 0.51,-1.5 0.01,1.98 0.59,1.01 -0.27,5.18 -0.36,0.6 z" id="pb" title="Paraíba"></path>
+                  <path d="m 397.01257,499.66114 -5.24,-0.03 -0.33,0.44 -1.74,0.24 -0.76,-0.07 -0.11,-0.39 -1.57,0.57 -1.35,1.43 -3.35,2.13 -1.44,-0.16 -1.23,-0.62 -3.13,-2.6 -1.03,-0.39 -0.76,-0.01 -2.84,0.73 -2.33,0.17 -0.81,-0.03 -1.42,-0.76 -1.11,0.14 -1.53,0.65 -0.59,1.47 -0.73,0.87 -1.87,0.98 -3.57,-0.41 -2,1.15 -0.72,0.77 -0.69,1.59 0.85,2.99 -0.87,0.86 -0.92,0.02 -0.75,0.38 -0.17,0.49 -1.33,-1.89 -4.25,0.13 -3.76,-0.43 -1.58,-1.18 -0.16,-0.41 -1.03,-0.63 -4.26,-0.36 -5.29,-1.68 -2.34,0.57 -2.69,-0.03 -2.02,-1.41 -0.32,-0.51 -1.06,-0.24 -0.53,-0.01 -0.71,0.37 -3.63,-0.02 0,0 -0.22,-1.21 -2.53,-4.18 0.02,-2.59 -0.99,-2.88 -3.42,-2.37 -1.09,1.13 -2.12,-0.11 -1.1,0.43 -1.07,0.9 -1.46,-1.08 -0.82,0.06 -0.28,-2.2 0.66,-1.57 1.07,-1.27 1.22,-2.18 0.06,-0.34 -0.49,-0.75 0.02,-1.24 0.9,-3.64 1.26,-3.02 -0.25,-2.3 1.28,-2.38 -0.21,-1.02 -0.84,-0.88 -0.31,-1.6 0.66,-1.06 0.79,-0.54 0,0 2.38,-1.56 0.36,-0.82 1.57,-7.92 0.33,-0.35 1.11,-0.32 1.66,-1.01 0.67,-0.68 1.45,-3.56 -0.02,-1.15 0.93,-2.33 1.11,-0.82 5.41,-2.27 0,0 3.26,-2.29 3.83,0.65 4.01,-0.11 3.27,0.29 1.21,-0.62 0.35,-0.6 0.73,-0.37 1.17,0.29 1.48,0.78 2.52,0.46 2.64,1.09 1.31,0.13 1.07,-0.54 2.58,-0.01 0.78,1 1.75,0.84 3.51,0.8 0.63,0.51 0.71,1.32 1.73,0.07 0.42,-0.34 1.65,0.15 0.66,0.54 5.31,0.13 2.97,-0.85 1.13,1.55 3.59,2.83 0.89,1.76 0.01,2.74 -0.39,0.58 -0.16,0.81 0.38,1.84 1.3,1.51 -0.08,1.76 -0.36,0.56 1.49,3 1.21,1.15 0.67,0.28 0.5,0.68 -0.05,0.89 0.92,1.97 0.6,0.29 0.25,0.44 -0.25,1.05 -1.27,2.13 0.32,2.04 0.6,0.38 1.01,0.21 2.38,-0.12 3.42,-0.53 0.5,0.39 1.58,-0.19 1.59,0.13 1.61,1.26 -0.14,0.41 -0.89,0.65 -0.69,3.3 0.35,0.78 1.07,0.53 0.65,-0.85 1.1,-2.76 0.76,-0.17 2.14,0.58 -0.4,1.95 0.73,3.3 1.42,0.58 0.16,1.32 0,0 -1.35,1.02 -0.61,1.48 -0.55,-0.12 0.27,-1.94 1.44,-0.95 -1.41,0.28 -0.89,0.49 -0.87,-0.02 -0.34,-0.39 -0.57,-0.17 -0.54,0.37 -0.28,0.93 0.52,0.8 -0.73,0.96 -0.3,0.1 -2.48,-0.53 -0.79,-0.54 -0.45,0.12 -0.18,0.9 0.34,0.37 1.61,0.56 1.4,-0.25 2.13,0.6 0.27,0.48 -0.97,0.68 -1.54,2.78 -1.24,0.77 -2.42,0.57 -0.2,0.45 2.95,-0.2 0.15,1.19 z" id="pr" title="Paraná"></path>
+                  <path d="m 558.54257,227.45114 -1.22,-3.04 -0.01,-0.94 -2.11,-0.86 -0.5,-0.37 -0.45,-0.83 0.61,-0.89 -0.02,-0.62 -0.45,-0.32 -1,0.01 -0.43,0.44 -0.29,1.74 -0.43,0.15 -0.39,-0.26 -0.54,-1.65 -1.58,-1.15 -2.99,-0.4 -2.36,-0.77 -1.35,-0.81 -0.83,-1.44 -1.49,-0.56 -0.59,0.11 -2.53,1.46 -1.65,0.44 -0.77,2.05 -2.23,0.45 -0.29,0.25 0.25,1.36 -0.17,0.59 -1.1,1.24 -2.39,1.03 -0.64,-0.06 -0.77,-0.53 -0.76,0.17 -0.5,0.87 -0.77,3.57 -2.87,0.88 -0.82,0.92 -0.96,0.23 -1.84,-0.62 0.92,-1.68 -0.26,-2 -2.21,-0.91 -0.72,-1.94 0.06,-2.73 -0.44,-0.51 -2.81,-1.38 -2.2,-0.29 -1.16,0.26 -0.9,-0.4 0,0 2.62,-1.27 1.97,-1.71 0.54,-0.87 2.29,-1.33 0.97,-0.28 3.89,-3.87 0.74,-1.76 0.06,-2.27 -0.29,-0.54 -1.62,-1.58 0.07,-2.19 -0.6,-1.13 -0.06,-0.95 0.11,-0.45 0.52,-0.33 1.79,-0.16 0,0 4.93,0.2 0.89,0.24 1.63,-0.19 2.14,-0.8 1.29,-0.1 3.08,0.42 2.85,1.9 1.83,0.83 0.46,0.99 1.01,1.07 1.36,0.48 0.78,0.57 0.63,1.64 1.65,-0.05 1.54,-2.29 1.07,-0.83 1.59,-0.49 0,0 0.4,0.09 1.4,1.91 0.99,0.33 1.51,-0.32 0.93,-0.73 0.38,0.08 0.63,1.24 -0.05,0.68 0.77,0.33 2.63,-0.97 1.63,-0.23 1.52,-1.64 2.7,-1.88 1.05,-0.31 1.48,-0.87 0.93,-1.51 2.22,-1.26 1.48,-0.41 3.5,1.92 0.5,1.39 -0.11,0.3 -3,1.07 -0.37,0.78 0.04,0.47 0.72,1.87 -0.17,0.43 -2.53,2.64 -0.04,0.45 1.51,-0.25 0.44,-0.29 1.14,0.32 0.18,0.3 -0.24,0.49 0.35,2.24 0.95,0.94 1.6,0.79 1.65,-0.84 1.34,-0.16 1.78,-1.53 0.4,-0.48 -0.01,-0.54 -0.39,-0.73 0.54,-0.76 0.89,-0.69 1.82,-0.1 0.55,-0.64 1.61,-0.88 3.88,0.26 2.18,-0.29 0.8,-0.53 0,-0.6 1.14,0.02 2.01,-0.45 1.9,-1.03 0.45,-1.8 1.48,-1.28 2.31,-1.07 2.65,0.21 0.82,0.26 2.5,2.06 0,0 0.88,0.23 0.55,1.22 -1.27,1.72 -0.11,0.55 0.01,0.48 0.7,0.37 0.27,0.5 0.19,1.06 -1.96,6.38 -3.25,8.95 0,0 -0.27,-0.21 -2.9,-0.27 -1.92,-0.81 -1.47,0.19 -2.56,1.29 -2.24,-0.85 -2,0.24 -1.55,1.24 -0.12,0.45 -2.18,2.29 -1.81,1.11 -1.16,-0.05 -1.86,1.06 -1.17,0.11 -3.14,-0.29 -2.5,0.65 -1.91,-0.48 -1.78,-1.05 -1.9,-2.12 -2.55,-2.02 -1.08,0.12 -1.67,-0.3 -1,-1.22 -0.82,0.6 -0.09,0.69 -2.38,3.29 -2.17,0.76 -0.64,1.09 z" id="pe" title="Pernambuco"></path>
+                  <path d="m 505.96257,127.17114 1.31,0.12 0.69,-0.23 2.24,0.51 0.99,0.85 0.32,0.6 0,0 -0.11,0.8 -1.09,1.85 -1.58,1.97 -0.18,1.46 0.29,1.29 1.8,4.72 3.15,6.42 0.44,1.73 1.36,1.59 -0.02,0.76 -0.74,1.36 0.79,3.87 -0.48,1.6 1,2.01 0.6,2.99 -0.59,1.58 -0.8,0.58 0.92,0.69 0.11,0.38 0.94,8.16 -0.24,0.45 0.76,2.57 1.05,5.2 1.01,2.67 1.31,0.65 2.56,0.47 0.77,1.16 -0.01,0.69 -1.5,2.25 -1.14,3.11 0.08,0.97 0.68,0.68 -0.06,1.32 0,0 -1.79,0.16 -0.52,0.33 -0.11,0.45 0.06,0.95 0.6,1.13 -0.07,2.19 1.62,1.58 0.29,0.54 -0.06,2.27 -0.74,1.76 -3.89,3.87 -0.97,0.28 -2.29,1.33 -0.54,0.87 -1.97,1.71 -2.62,1.27 0,0 -0.45,1.16 -1.5,2.3 -1.05,0.67 -0.79,-0.18 -2,0.38 0.11,2.4 -1.86,1.8 -0.32,-0.05 -0.62,-0.62 -2.16,-0.01 -0.82,0.98 -0.77,0.36 -2.73,0.34 -1.51,1.34 -0.82,1.22 -1.7,0.1 -1.48,0.64 -3,0.11 -0.82,-0.28 -0.19,-0.28 0.13,-0.66 -1.71,-0.98 -1.33,-0.39 -1.39,0.55 -2.13,0.43 -0.32,-0.18 -0.41,-0.93 -1.5,-0.46 -1.95,0.02 -3.24,1.65 -0.06,0.93 2.24,4.44 0.12,1.15 -0.29,2.57 -0.25,0.91 -0.72,0.86 -2.95,5.05 -2.97,2.42 -1.35,0.42 -1.48,-0.53 -1.34,-0.17 -2.2,0.75 -1.17,0.89 -0.67,0.87 -1.14,0.38 -0.75,1.45 -0.33,0.21 -2.11,-0.18 -1.8,0.52 -4.18,-1.85 -1.77,-2.49 -0.53,-2.21 -0.66,-1.04 -1.44,-1.34 -2.33,0.02 0,0 -2.94,-0.21 0,0 0.05,-1.92 0.26,-1.06 1.15,-2.45 0.13,-6.36 0.76,-1.4 0.03,-0.51 -1.73,-3.06 -0.47,-3.19 -0.7,-1.94 0.73,-2 1.7,-1.4 1.2,-2.48 0.13,-1.51 0.34,-0.83 0.3,-0.21 1.44,-2.74 0.63,-2.32 0.39,-2.97 0.98,-2.98 2.13,-1.95 2.72,-0.76 2.61,-0.31 1.07,-0.37 1.7,-1.53 1.05,-0.04 1.34,-0.52 2.86,-2.57 2.34,-0.91 2.01,-2 0.63,-0.87 0,-0.46 1.9,-1.92 0.5,-0.22 0.84,-0.24 0.23,0.3 1.12,-0.26 1,-0.6 1.46,-0.19 1.01,0.21 2.51,1.82 1.51,-0.1 2.44,-0.86 0.83,-0.04 0.65,0.28 2.28,-0.29 1.21,-1.31 0.5,-1.46 0.12,-1.21 0.29,-0.44 0.39,-2.2 -0.13,-0.85 -0.17,-0.5 -1.61,-0.91 -1.78,-2.03 -0.51,-2.3 -0.11,-2.11 0.17,-2.48 4.1,-4.43 0.21,-0.55 0.1,-2.43 -0.55,-2.98 -1.58,-2.8 1.14,-2.87 0.28,-1.47 -0.38,-1.27 -1.23,-0.84 -0.35,-1.92 0.77,-1.05 0.64,-0.17 0.82,-1.98 1.89,-1.85 0.88,-1.83 -0.04,-1.79 2.92,-3.41 0.81,0.16 3.31,-0.46 4.13,-3.97 1.79,-2.27 0.39,-1.53 -0.64,-0.53 -0.22,-0.72 0.46,-1.44 0,0 0.73,0.12 1.47,0.87 0.51,0.51 -0.13,0.31 z" id="pi" title="Piauí"></path>
+                  <path d="m 468.61257,450.54114 -0.07,-0.78 0.38,-0.27 3.19,0.22 2.59,-0.59 -2.53,-1.55 -1.4,-0.5 -2.81,0.68 -1.36,1.6 -1.03,0.32 -0.7,-0.05 -1.35,-2.15 -0.48,0 -0.9,0.42 -0.96,1.06 -3.15,0.8 -0.34,0.91 -0.19,1.9 2.19,0.13 1.07,1.01 -1.15,1.08 -0.94,-0.17 -1.42,0.17 0,0 -0.48,-0.26 -1.63,-1.73 -0.05,-0.41 1.09,-3.5 1.09,-1.15 2.35,-1.01 0.5,0.15 2.77,-0.36 1.5,-0.71 1.65,-2.15 -0.75,-1.64 -1.7,-0.01 -3.15,0.53 -1.77,-0.39 -1.23,-1.59 -0.56,-1.17 -1.27,-0.54 0,0 0.68,-0.49 2.42,-0.74 2.91,-1.34 2.58,-0.17 0.5,0.27 1.72,-0.77 1.05,-0.77 4.09,-1.79 0.52,-0.07 0.36,0.31 3.2,-0.07 1.25,-0.17 1.63,-0.94 0.57,-0.06 2.53,0.27 0.49,0.17 -0.02,0.47 1.38,-0.2 9.51,-4.53 2.53,-0.99 0.21,-0.52 -0.28,-0.61 -1.44,-0.13 0.09,-0.75 1.89,-3.71 2.36,-6.04 -0.73,-0.71 0.56,-0.49 1.24,-0.27 2.53,-2.36 0,0 1.93,0.76 0.67,4.71 2.5,1.13 4.33,1.01 2.99,-0.37 1.62,1.06 0,0 -0.08,1.27 -0.94,1.61 -0.22,2.13 1.14,6.78 -0.5,0.68 -3.08,1.75 -5.97,1.94 -2.83,1.72 -3.5,3.69 -0.11,1.66 0.31,1.19 -0.19,1.62 -0.73,1.48 -1.82,0.51 -6.55,-0.17 -5.79,0.7 -2.39,-0.46 -0.49,-0.38 -0.06,-0.68 1.03,-1.48 0.67,-1.45 -0.09,-0.62 -0.78,-0.18 -2.79,1.15 -0.26,0.69 0.31,0.79 1.38,1.17 0.25,0.97 -0.59,0.52 -1.63,0.51 -1.57,-0.03 -8.04,1.07 -1.46,0.45 z m -5.11,1.99 -0.67,-0.97 2.11,-1.55 1.86,0.94 0.43,0.7 -2.46,0.5 -0.41,-0.35 -0.47,0 -0.39,0.73 z" id="rj" title="Rio de Janeiro"></path>
+                  <path d="m 609.55257,183.17114 -0.93,0.24 -3.5,-0.21 -1.04,0.4 -2.46,-1.1 -2.17,-0.3 -5.83,0.39 -0.53,-0.35 -3.42,-0.4 -0.62,-0.49 0.1,-1 -0.42,-0.39 -1.38,0.05 -1.82,1.35 -0.31,1.48 0.72,0.78 0.53,1.53 -1.01,-0.32 -0.48,0.59 0.16,1.42 0.47,0.94 -0.55,1.21 -0.5,0.74 -2.35,0.93 -0.83,-0.74 0.52,-1.54 -0.89,-1.17 -1.95,-0.3 -1.77,0.08 -3.15,1.26 -0.29,-0.23 -0.31,-1.38 -0.32,-0.23 -3.53,-0.52 0.08,-1.72 0.21,-0.31 0.85,-0.25 0.41,-0.38 0.38,-1.74 0.44,-0.96 2.99,-3.21 -0.01,-1.19 -0.53,-0.44 -0.64,-0.08 -3.26,1.04 -1.43,0.12 -3.18,1.21 -0.41,0.95 -0.1,1.04 -0.82,0.71 -3.23,1.66 -1.16,1.13 -2.88,-0.61 -0.9,-0.42 -1.93,-1.64 -0.57,0.46 0,0 -0.66,0.38 -0.64,-0.17 0.34,-1.97 1.41,-2.25 0.84,-0.88 0.51,-0.07 0.78,0.51 1.03,-0.26 0.57,-1.1 1.46,-1.51 1.4,-2.44 -0.15,-0.74 0.65,-1.67 0.87,-0.57 0.84,-1.12 3.3,-6.69 2.61,-2.01 4.89,-1.59 0,0 0.47,0.76 0.86,0.75 3.13,-0.01 1.22,0.41 1.69,1.75 1.32,0.5 3.33,-0.32 2.88,0.52 2.54,-0.24 2.33,-0.73 4.5,0.92 1.27,0.04 1.95,0.86 1.02,0.82 0.64,0.94 2.31,4.74 0.5,1.79 -0.04,0.75 1.48,5.38 0.21,1.68 0.72,0.54 0.96,2.69 z" id="rn" title="Rio Grande do Norte"></path>
+                  <path d="m 322.25257,638.78114 -0.36,0.01 -1.94,-1.11 -0.2,-0.46 0.52,-4.27 -0.46,-4.25 0.15,-1.07 0.63,-1.24 2.84,-2.38 0.83,-1.56 2.3,-2.56 -1.46,-1.65 -1.07,-0.62 -2.25,-0.6 -2.32,-2.25 -1.21,-1.62 -0.1,-1.59 -0.43,-1.18 -1.23,-2.03 -2.06,-2.24 -0.67,-0.59 -2.39,-1.21 -1.45,0.21 -1.9,-1.51 -1.52,-1.63 -1.25,-0.78 -0.14,-1.7 -1.9,-2.16 -3.32,-0.46 -0.92,-0.47 -1.73,-1.66 -1.76,0.13 -2.17,-1.38 -1.91,-3.71 -1.11,-1.49 -2.53,-2.12 -0.7,0.08 -0.67,1.79 -2.59,2.24 -2.67,0.12 0.1,-2.86 0.4,-1.28 -0.39,-1 -3.65,-4.29 -2.37,-1.77 -2.18,-2.06 -1.75,-2.11 -2.69,-2.21 -1.9,-0.14 -2.15,0.21 -1.14,1.36 -0.06,0.96 -1.03,0.97 -1.11,0.02 -0.58,-0.48 -3.16,0.14 -0.65,-0.48 -0.16,-0.91 -0.49,-0.22 0.85,-0.22 1.04,-0.72 2.52,-2.77 0.11,-1.84 0.6,-1.25 0.82,-0.45 1.29,-0.07 0.64,-0.26 0.92,-1 5.45,-6.48 0.63,-1.42 0.17,-1.11 0.82,-1.07 1.2,-0.85 1.37,-0.41 1.96,-4.22 0.1,-0.61 0.31,-0.37 1.64,-0.86 1.63,-1.8 0.85,-1.15 0.51,-1.29 1.34,-2.1 0.93,-0.29 1.57,0.18 0.55,0.79 0.47,-1.28 -0.21,-0.58 -1.35,-0.82 -0.05,-0.36 0.35,-0.33 1.08,-0.38 0.82,-0.96 2.79,-0.95 1.05,-1.07 0.1,-0.92 0.82,-0.91 2.21,-1.15 2.47,-0.4 1.77,-1.81 0.15,-1.06 1.32,-2.36 0.33,-0.04 0.05,0.36 0.29,0.2 1.33,-0.17 2.44,-1.13 2.68,-0.59 1.21,-0.57 2.1,-2.35 0.5,0.01 0.67,-0.39 1.01,-1.35 2.31,-0.73 0.3,0.38 0,0 3.52,0.39 3.26,-1.15 0.56,-0.81 1.35,0.58 -0.15,0.92 3.08,-0.03 1.63,0.99 2.56,-0.37 1.92,1.15 2.58,-0.41 1.54,0.18 2.8,-0.16 2.26,0.92 2.48,1.4 1,2.44 1.59,0.19 0.09,-0.48 1.81,-0.35 5.56,3.54 1.37,1.55 0.71,-0.03 1.56,0.98 3.03,3.49 1.64,2.21 0.48,1.48 2.17,2.66 1.17,0.55 6.69,1.06 2.11,-0.4 3.35,0.34 0.88,2.34 -2.08,1.58 -1.27,0.41 -0.73,1.86 0.22,2.19 -0.38,1.56 -0.52,1.3 -1.18,0.2 -1.29,1.69 -0.03,1.41 1.8,1.17 0.27,-0.2 -0.28,-0.97 0.01,-0.96 1.49,-0.82 1.58,0.64 0.73,0.91 1.17,0.85 0.45,-0.03 0,0 -1.4,1.73 -3.9,7.04 -4.21,11.6 -6.3,10.48 -5.44,6.66 -6.51,5.96 -6.09,3.68 -3.1,4.31 -0.18,-0.43 0.65,-1.58 0.34,-2.18 -1.18,-1.71 0.1,-0.42 0.93,-0.17 1.01,0.4 0.56,0.58 1.02,0.04 2.58,-1.41 0.82,-0.68 2.85,-3.71 0.75,-0.69 0.45,0.19 1.02,-0.19 1.05,-0.84 0.93,-1.27 0.37,-1.48 0.18,-0.93 -0.23,-2.1 0.2,-1.37 1.57,-0.07 0.74,0.3 0.27,0.83 0.35,-0.26 -0.29,-1.4 0.51,-2.07 0.48,-0.57 2.74,-1.59 0.73,-1.08 0.47,-2.75 -0.21,-2.28 0.56,-0.68 0.5,0.8 0.37,0.03 0.43,-0.42 0.47,-3.08 -0.1,-0.44 -0.95,-1.22 -0.67,-0.03 -0.26,0.69 0.17,0.39 -0.14,0.57 -0.35,0.2 -1.51,-0.02 -2.01,0.4 -0.34,1.61 -0.53,0.05 -0.81,-0.44 0.1,-1.71 -0.82,-0.89 -1.04,0.33 -0.6,-0.48 -0.73,-1.26 -0.4,-1.45 0.12,-0.57 -0.64,-0.69 -0.61,2.71 0.44,2.25 1.25,2.11 -0.57,0.81 -0.74,2.54 0.38,3.03 -0.18,0.77 -0.48,-0.37 0.26,-0.24 -0.03,-0.71 -0.47,-1.28 -0.45,-0.39 -0.53,0.66 -0.03,1.37 -1.41,3.27 -0.05,1.89 0.22,0.52 -0.72,0.7 -1.61,0.64 -0.61,1.58 -4.09,1.57 -0.72,0.53 -0.53,1.59 -0.1,2.27 -0.97,2.27 -2.36,1.3 -0.11,1.76 0.48,0.83 0.25,1.02 -0.95,0.56 -0.25,1.51 0.43,0.6 0.68,-0.14 1.3,0.63 0.15,0.91 -2.13,1.65 -2.32,4.52 -1.93,6.88 -2.01,4.49 -1.68,2.52 -7.79,7.53 z" id="rs" title="Rio Grande do Sul"></path>
+                  <path d="m 187.58257,291.21114 -1.29,-1.45 -0.44,-1.88 -1.56,-0.52 -0.86,0.32 -1.81,0.08 -4.07,-1.81 -0.01,-0.4 -0.66,-0.61 -1.27,0.59 -1.98,-1.68 -1.52,-0.97 -0.86,-1.46 -0.28,-1.39 -1.04,-0.39 -1.77,1.12 -1.22,-0.03 -1.41,-0.8 -0.87,-1.33 -3.13,-1.58 -1.96,-0.17 -1.14,0.54 -0.9,0.85 -1.43,-0.17 -0.31,-0.3 -2.14,-0.51 -3.06,-0.28 -0.76,-0.43 -1.18,-1.19 -0.3,-1.97 -1.58,-0.49 -1.89,-0.97 -0.82,-1.72 -0.29,-0.2 -2.72,-0.28 -0.38,-0.35 -0.84,-3.71 -0.88,-0.89 -0.48,1.16 -0.66,-0.32 -0.27,-0.64 0.62,-1.53 -0.84,-1.52 -1.36,-0.39 -1.26,-3.47 -0.17,-1.66 1.55,-2.91 -0.21,-1.66 -1.16,-1.97 -0.75,-2.16 -0.06,-2.29 0.62,-0.5 0.38,-1.37 1.04,-1.05 0.36,-1.47 -0.24,-1.49 -0.42,-0.89 -0.09,-1.53 0.54,-1.65 -1.17,-2.18 -1.02,-0.38 -1.09,0.98 -0.06,0.51 -0.84,0.96 -0.57,0 -2.18,-1.02 -5.18,0.08 -5.61,1.78 -1.69,-0.01 -1.48,0.48 0,0 -2.97,-1.26 0,0 3.26,-2.56 1.92,-0.58 1.55,-1.81 0.15,-0.56 -0.16,-1.29 3.96,0.26 2.87,-0.33 0.72,0.37 2.31,2.33 0.37,-0.02 1.22,-0.79 0.13,-0.72 0.41,-0.53 1.08,-0.5 0.77,0.13 1.37,-0.39 1.3,-1.21 1.84,-1.02 0.38,0.09 0.64,2.26 0.68,0.53 0.68,-0.08 2.54,-3.16 -0.26,-1.75 0.53,-0.84 1.75,-1.26 0.46,0.02 0.84,0.55 1.79,0.1 1.2,-1.07 2.13,-0.38 3.87,0.46 -0.24,-1.46 0.11,-1.81 2.06,-1.21 0.81,-1.15 0.36,-1.02 -0.17,-0.45 -0.9,-0.7 0.05,-0.67 1.19,-1.59 2.48,-0.53 0.26,-0.22 -0.09,-1.17 1.72,-0.5 1.38,-2.56 10.79,-0.06 2.15,1.13 0.45,0.49 0.8,1.91 1.33,1.27 2.54,0.98 1.25,3.27 0.46,0.21 0.98,-0.13 0.62,0.2 0.68,2.88 3.24,1.48 0.68,-0.19 0.54,-1.74 1.92,-1.08 1.39,0.28 0.36,0.38 -0.04,0.7 0,0 1.4,0.97 0.6,1.24 -0.76,1.42 -1.29,4.99 0.06,0.35 0.78,0.47 0.26,0.61 0.15,1.39 0.83,2.27 -0.94,1.67 0.38,1.93 -1,3.52 -0.03,0.8 0.27,1.76 1.5,2.75 -0.9,9 17.16,0.05 -0.24,0.56 1.22,1.11 3.5,-0.09 1.11,0.11 1.07,0.43 1.41,3.59 -0.17,0.75 -1.4,1.75 -1.36,1.08 -0.14,1.32 0.43,3.25 0.58,0.51 0.9,-0.03 1.53,3.34 -0.04,2.05 0.58,1.49 -0.07,1.71 -0.56,2.24 -1.66,2.01 -0.52,2.25 -0.58,0.84 -0.43,0.41 -1.64,0.53 -0.93,1.08 -1.43,3.78 -0.52,2.45 -4.11,2.57 -1.47,1.43 0,0 -0.74,-0.04 -2.59,-1.55 -1.27,-1.43 -7.08,0.96 -1.32,-0.43 -0.25,-0.3 -3.38,0.66 -0.48,-0.16 -0.52,-1.35 z" id="ro" title="Rondônia"></path>
+                  <path d="m 234.87257,61.661144 1.6,16.97 0,0 -18.49,-0.07 0.03,0.68 -2.33,3.26 -1.66,3.03 -0.07,1.13 -1.15,2.64 -0.11,0.66 0.23,0.73 1.14,1.41 -0.02,0.53 -0.42,0.39 -2.03,0.55 -1.41,1.41 -1.25,0.46 -1.82,-0.23 -0.92,-2.51 -1.87,-2.04 -2.83,-0.93 -1.6,0.06 -0.55,0.89 -2.09,0.71 -1.28,0.69 -1.02,1.26 -0.82,2.97 0.37,1.8 -0.25,1.73 -0.75,2.289996 0.44,2.11 -2.36,-1.04 -1.34,0.42 -0.53,-0.07 -1.04,-2.04 -1.48,-1.649996 -1.96,-1.31 -0.52,-0.04 -5.01,-4.42 0.14,-1.14 1.84,0.33 1.14,-1.32 0.06,-0.58 -1.13,-4.33 -0.58,-0.9 -1.22,-0.84 -0.88,-2.17 -0.29,-4.98 0.57,-0.96 0.77,-3.04 -0.66,-1.58 -0.36,-1.59 1.62,-1.46 -0.05,-0.45 -0.87,-1.12 -0.19,-2.26 -1.66,-4.76 -2.73,-3.74 0.71,-1.5 0.91,-3.32 -0.49,-0.66 -1.95,-0.95 -1.36,-0.11 -0.88,0.21 -0.97,-0.37 -1.21,-1.17 -0.06,-0.96 -0.63,-0.11 -1.13,0.42 -0.61,-0.01 -0.75,-0.34 -0.72,-0.78 0,0 0.3,-0.46 0.23,-2.28 -0.3,-0.22 -3.37,-0.23 -3.75,0.14 -3.31,-0.7 -0.2,-0.6 0.8,-1.76 0.12,-1.48 -0.73,-1.77 -1.94,-3.54 -0.73,-2.06 -0.47,-3.72 0.79,-1.48 -0.08,-0.96 -1.84,-2 -2.16,-1.06 -2.81,-2.78 -1.06,-1.81 -0.29,-0.96 -1.14,-0.65 -0.25,-0.39 0.03,-0.84 0.29,-0.33 0.9,0.07 1.12,0.66 0.94,1.73 0.61,0.09 3.39,-0.5 1.35,0.1 1.91,0.59 0.61,1.2 0.55,1.93 0.54,0.35 0.96,-0.08 0.74,-0.65 0.95,-0.4 3.18,0.16 0.47,0.05 1.31,1.21 0.6,0.15 0.52,-0.14 0.61,-1.56 1.31,0.14 1.45,0.93 3.93,4.57 1.05,0.57 0.71,0.11 1.51,-0.68 0.74,-1.13 0.1,-0.84 -0.83,-2.76 0.36,-1.74 0.46,-0.28 1.93,-0.05 1.01,-1.1 1.55,-1.09 0.75,0.05 3.9,1.34 0.59,-0.17 0.8,-0.72 1.03,-0.3 1.13,0.35 1.03,-0.21 1.34,-1.28 1,-0.25 1.15,0.23 1.11,-0.07 0.68,-0.85 0.05,-1.35 3.03,-1.81 2.33,0.19 2.76,-0.39 0.89,-1.13 0.09,-0.71 0.59,-1.1199998 0.75,-0.13 1.85,-0.9 1.1,-1.04 1.11,-1.71 -1.2,-3.56 -1.17,-0.36 0.64,-0.18 1.43,0.07 0.8,0.32 3.57,-0.1 1.06,-0.95 0.74,-0.22 1.37,0.42 0.53,1.31 1.04,0.8 0.48,1.37 -0.67,4.9 -0.72,1.3799998 -1.25,0.7 0.06,0.83 1.61,0.41 1.62,-0.22 2.35,0.81 1.82,1.1 -0.88,1.43 -0.01,1.15 2.34,3.42 0.2,1.55 -1.51,2.92 -1.88,1.41 -0.72,1.5 0.27,0.39 0.06,2.17 -1.47,2.41 -0.9,2.77 -0.31,2.57 -0.09,2.67 0.98,1.87 0.51,1.76 -0.01,1.4 1.57,1.03 0.9,0.2 0.13,0.68 -0.46,5.15 0.12,0.74 1.81,0.29 -0.66,1.17 0.46,0.5 2.15,0.74 1.46,1.92 2.66,2.74 z" id="rr" title="Roraima"></path>
+                  <path d="m 379.56257,558.27114 -0.45,0.03 -1.17,-0.85 -0.73,-0.92 -1.59,-0.63 -1.48,0.82 -0.01,0.96 0.28,0.97 -0.27,0.2 -1.8,-1.17 0.04,-1.41 1.28,-1.69 1.18,-0.2 0.53,-1.31 0.37,-1.55 -0.22,-2.19 0.73,-1.86 1.27,-0.42 2.08,-1.58 -0.88,-2.34 -3.35,-0.34 -2.11,0.4 -6.69,-1.06 -1.16,-0.54 -2.17,-2.66 -0.49,-1.48 -1.63,-2.21 -3.03,-3.49 -1.57,-0.99 -0.71,0.03 -1.37,-1.55 -5.56,-3.54 -1.81,0.34 -0.09,0.48 -1.6,-0.19 -1,-2.44 -2.47,-1.39 -2.27,-0.93 -2.79,0.16 -1.54,-0.18 -2.59,0.41 -1.91,-1.15 -2.57,0.36 -1.63,-0.98 -3.08,0.03 0.15,-0.93 -1.35,-0.58 -0.56,0.81 -3.26,1.16 -3.52,-0.39 0,0 1.45,-2.93 0.73,-2.09 -0.58,-3.25 0.41,-3.21 -0.04,-2.55 0.96,-1.75 0,0 3.63,0.02 0.71,-0.38 0.53,0.01 1.06,0.24 0.31,0.51 2.03,1.41 2.68,0.03 2.34,-0.58 5.29,1.68 4.26,0.36 1.02,0.63 0.17,0.41 1.57,1.18 3.77,0.42 4.25,-0.13 1.33,1.9 0.18,-0.5 0.74,-0.38 0.92,-0.02 0.87,-0.86 -0.85,-2.99 0.69,-1.58 0.72,-0.78 2,-1.14 3.57,0.4 1.87,-0.97 0.73,-0.87 0.59,-1.48 1.53,-0.65 1.11,-0.14 1.42,0.76 0.81,0.03 2.33,-0.17 2.84,-0.73 0.75,0.01 1.04,0.4 3.12,2.6 1.23,0.62 1.44,0.16 3.35,-2.13 1.35,-1.43 1.56,-0.57 0.12,0.39 0.76,0.07 1.74,-0.23 0.33,-0.44 5.24,0.03 0,0 -0.39,1.32 0.51,1.65 -0.07,0.39 -1.5,1.14 -0.98,-0.48 -0.82,-2.53 -0.02,1.12 0.59,2.72 1.71,1.66 0.56,0.95 -1.01,2.29 -0.16,2.32 0.1,0.43 0.76,0.73 0.26,5.86 0.31,0.55 0.43,0.2 0.77,-0.51 0.35,0.72 0.1,0.87 -0.47,0.06 -0.43,-0.28 -1.19,0.63 -0.34,3.84 0.57,2.59 -0.57,0.75 0.31,1.93 0.91,1.88 -0.86,2.34 -0.52,4.01 -1.71,4.68 -0.34,-0.1 -0.36,-0.76 0.21,-0.97 -0.92,-1.18 -0.26,0.33 0.18,2.43 1.16,0.83 -0.92,1.66 -1.64,0.65 -4.13,3.04 -2.8,2.56 -3.75,4.44 -1.04,1.88 z m 17.88,-26.55 -0.15,-0.47 0.25,-1.75 0.76,-2.4 -0.4,-1.18 0.16,-1.02 1.4,-0.76 0.22,0.06 0.66,0.94 -0.54,2.56 -0.82,0.86 -0.59,1.22 0.2,1.17 -1.15,0.77 z m -0.45,-24.37 -1.87,-2.02 2.55,-2.44 0.25,0.04 0.65,1.05 -0.86,1.32 -0.72,2.05 z" id="sc" title="Santa Catarina"></path>
+                  <path d="m 404.84257,488.18114 -0.16,-1.33 -1.42,-0.57 -0.73,-3.3 0.4,-1.95 -2.14,-0.58 -0.76,0.17 -1.1,2.77 -0.66,0.85 -1.06,-0.53 -0.35,-0.78 0.69,-3.3 0.89,-0.66 0.14,-0.4 -1.61,-1.27 -1.59,-0.13 -1.58,0.19 -0.5,-0.38 -3.41,0.53 -2.38,0.12 -1.01,-0.21 -0.6,-0.39 -0.33,-2.04 1.28,-2.12 0.25,-1.05 -0.25,-0.44 -0.6,-0.3 -0.92,-1.97 0.06,-0.89 -0.5,-0.68 -0.67,-0.29 -1.21,-1.14 -1.49,-3.01 0.36,-0.55 0.08,-1.76 -1.3,-1.52 -0.38,-1.84 0.17,-0.81 0.39,-0.58 -0.02,-2.74 -0.89,-1.76 -3.59,-2.83 -1.13,-1.55 -2.97,0.86 -5.31,-0.13 -0.66,-0.54 -1.65,-0.14 -0.42,0.34 -1.72,-0.07 -0.72,-1.32 -0.63,-0.51 -3.51,-0.8 -1.75,-0.84 -0.78,-1 -2.58,0.01 -1.07,0.54 -1.32,-0.13 -2.64,-1.09 -2.53,-0.46 -1.48,-0.79 -1.17,-0.29 -0.73,0.37 -0.34,0.6 -1.21,0.62 -3.28,-0.29 -4.01,0.11 -3.83,-0.65 -3.25,2.29 0,0 0.84,-1.08 0.73,-1.54 1.26,-1.14 7.56,-4.54 1.95,-1.87 1.26,-2.43 1.73,-1.69 0.4,-1.21 1.44,-1.03 0.28,-1.22 -0.35,-0.84 2,-2.26 1.21,-2.34 0.07,-0.94 -0.31,-1.93 0.23,-0.39 0.96,-0.52 2.6,-3.64 0.16,-2.93 0.62,-1.68 1.01,-0.3 0.73,-0.64 1.99,-2.68 1.22,-1.02 0.47,-0.23 1.31,-0.04 1.5,-0.78 0.28,-0.4 0.4,-2.46 0,0 1.22,-1.13 2.15,-1.11 1.92,-0.37 1.43,-1.69 1.5,-0.61 0.75,0.14 1.73,1.55 2.55,0.08 4.29,0.96 1.67,-0.36 1.62,0.22 2,-0.59 2.18,1.42 1.67,0.79 -0.13,0.92 0.33,1.42 1.21,2.09 0.63,0.03 0.54,-0.32 0.67,-0.94 0.41,-1.13 0.26,-0.19 0.55,0.05 0.36,0.39 0.25,0.96 0.01,2.78 1.2,0.53 0.41,-0.45 -0.27,-2.54 0.49,-1.19 0.45,-0.48 8.18,-0.67 1.01,-1.25 1.5,1.46 1.12,0.43 2.78,-0.69 0.44,-0.99 -0.2,-0.46 0.31,-0.61 2.38,-0.11 1.66,0.78 0.85,-0.64 1.31,-0.29 3.26,3.35 0.2,1.04 -0.57,1.01 -0.29,2.37 0.58,0.61 1.89,1.21 0.4,1.55 -0.06,0.56 -1.52,2.03 -0.18,1.94 0.79,0.74 0.31,0.61 0.37,2.21 1.3,1.8 0.83,1.99 -0.03,0.85 1.61,-0.05 0.78,-0.31 0.28,-0.36 1,-0.05 3.7,1.32 0.23,0.37 -0.05,1.27 -0.7,2.18 -1.86,2.72 0.26,2.94 -0.19,3.45 -0.53,1.56 0.72,1.6 1.78,1.24 1.81,0.83 0.51,1.72 -1.21,0.7 2.02,3.31 1.13,0.25 2.01,-0.24 0.18,0.53 3.62,-1 0.56,0.42 1.31,-0.32 0.75,-0.98 0.05,-0.84 -0.24,-0.24 0.17,-2.3 1.19,-0.33 0.09,0.35 -0.35,0.49 0.01,0.48 2.34,0.08 2.39,-0.25 1.79,-0.67 1.23,-1.24 1.93,-1.02 2.21,-0.22 1.24,-0.73 0,0 1.27,0.54 0.56,1.17 1.23,1.59 1.77,0.39 3.15,-0.53 1.7,0.01 0.75,1.64 -1.65,2.15 -1.5,0.71 -2.77,0.36 -0.5,-0.15 -2.35,1.01 -1.09,1.15 -1.09,3.5 0.05,0.41 1.63,1.73 0.48,0.26 0,0 -0.06,0.2 -1.69,0.42 -1.06,-0.82 -1.48,1.11 -0.43,0.65 0.27,0.22 -0.76,0.64 -3.22,1.55 -2.25,0.7 -0.28,0.44 0.04,0.96 0.5,1.55 -0.32,0.42 -1.4,0.26 -0.7,-0.64 -1.34,-0.29 -3.12,-0.5 -0.86,0.15 -1.32,0.34 -1.73,0.82 -0.5,0.51 -1.21,2.15 -1.31,0.57 -0.5,-0.12 0.58,-0.47 -0.48,-1.22 -1.17,-0.85 -0.83,1.23 0.26,0.75 -0.3,0.61 -7.62,4.24 -0.95,0.82 -0.31,1.16 -3.27,3 -3.25,1.95 -1.92,0.53 -4.5,3.21 -2.33,1.96 -0.67,0.08 -0.44,0.62 0.9,0.43 0.66,0.06 0.93,-0.36 0,0.76 -0.62,1.31 -1.32,0.85 -1.06,1.48 z m 44.31,-23.01 -1.54,-0.65 -1.16,0.18 -0.49,-0.38 0.1,-0.78 0.95,-0.65 1.09,-1.85 0.72,0.25 0.66,0.65 0.13,2.91 -0.46,0.32 z" id="sp" title="São Paulo"></path>
+                  <path d="m 570.20257,261.95114 -2.9,0.89 -1.55,-0.64 -0.54,-0.34 -0.48,-0.72 -1.92,-0.92 -0.6,-0.52 -0.12,-0.41 0.34,-0.39 0.13,-1.42 -0.15,-0.39 -1.43,-1.51 -0.52,-1.49 -1.09,-0.67 -0.96,-1.6 -0.02,-0.77 0.59,-1.58 0.32,-0.3 1.7,0.01 1.13,0.75 2.55,-0.99 0.69,-0.55 0.3,-0.58 -0.76,-2.75 0.08,-0.88 0.66,-1.62 0.08,-3.11 -0.75,-1.15 -1.99,-1.95 -1.27,-2.5 -0.22,-2.14 0.67,-1.15 0,0 6.46,2.98 3.68,0.95 5.42,3.07 1.3,2.45 1.76,1.45 1.66,0.79 0.46,0.03 3.59,2.23 0.6,1.31 0,0 -2.38,0.76 -4.57,2.94 -0.97,0.89 -1.55,2.21 -0.32,-0.02 0.11,-1.1 -1.05,-1.82 -0.99,0.16 0.34,1.16 1.24,0 0.23,0.24 -0.52,1.97 -1.27,2.09 -0.53,-0.35 -0.37,-0.67 -0.99,-0.16 0.2,0.68 1.13,0.62 -0.26,1.77 -0.86,1.15 -0.93,2.03 -0.78,0.15 -0.3,-0.46 0.48,-1.4 0.41,-0.13 0.31,-0.43 0.37,-1.04 -0.81,-0.37 0.1,0.68 -0.45,1.13 -0.48,0.5 -0.26,1.09 0.28,0.72 -0.26,0.52 z" id="se" title="Sergipe"></path>
+                  <path d="m 433.61257,282.08114 -5.36,1.42 -1.74,1.34 -2.56,1.1 -1.55,0 -4.53,1 -2.52,2.08 -1.78,0.9 -0.46,-0.24 -1.51,-2.62 -0.55,-0.03 -0.51,3.3 -0.69,0.08 -3.35,-0.68 -3.13,-1.47 0.56,-1.56 -0.22,-0.74 -4.53,0.53 -2.76,-0.34 -0.56,0.54 -0.3,1 -0.75,0.75 -1.14,-0.05 -0.61,-3.1 -1.11,-3.71 -1.04,-1.88 -1.15,-1.31 -1.18,0.97 -1.47,2.39 -1.63,5.94 -0.63,0.23 -4.07,-1.43 -3.09,-1.71 -3.93,-0.4 -2.2,-1.03 -2.4,-0.4 0.52,-2.34 1.22,-1.88 0.03,-1.71 -0.56,0.3 -1.81,2.09 -0.66,1.23 -0.2,1.88 -0.34,0.45 0,0 -0.8,-0.02 -0.96,-0.51 -0.98,-3.34 0.74,-2.76 -0.44,-3.05 -0.52,-0.58 -0.01,-1.57 0.47,-3.31 -1.1,-2.25 0.05,-0.5 0.82,-0.89 0.16,-0.87 -1.39,-1.34 -0.06,-0.86 1.88,-5.99 0.04,-2.95 0.54,-2.97 1.94,-5.29 0.37,-0.27 0.43,-0.85 0.44,-3.14 1.1,-1.25 0.56,-1.89 0.65,-1.02 0,0 1.62,-3.69 1.13,-4.45 1.15,-1.58 1.19,-1.1 1.21,-1.68 1.03,-1.92 1.37,-0.92 1.05,-0.16 0.73,-0.85 0.94,-1.54 0.18,-0.99 1.7,-3.24 1.09,-0.8 1.76,-5.15 0.66,-4.04 -0.15,-0.3 -0.74,-0.32 -1.67,-1.74 -0.6,-0.95 -0.16,-0.88 0.14,-0.57 1.41,-1.69 1.29,-2.1 -0.06,-2.67 -0.43,-2.18 0.19,-0.35 2.47,-1.78 3.41,-1.14 2.5,-1.21 0.24,-0.5 -0.15,-1.51 0.86,-1.27 1.51,-1.34 1.29,-0.15 0.19,-1.34 -0.29,-1.2 0.25,-0.46 1.46,-0.46 0.64,-0.48 0.93,-2.75 -1.02,-1.34 -0.09,-1.4 0.29,-0.28 0.97,-0.08 0.72,-0.37 0.37,-0.66 0.03,-0.64 -1.26,-1.17 -0.87,-0.14 -0.39,-0.31 -1.02,-1.66 -1.29,-0.12 -1.87,0.25 -2.29,-0.81 0,0 0.53,-0.64 2.62,-1.85 1.96,-0.53 0.87,0.05 2.78,1.52 1.4,0.08 0.95,-0.52 1.74,0.29 0.59,0.69 0.08,1.03 0.28,0.32 1.22,0.03 3.4,1.43 0.84,1.03 0.47,3.5 0.64,1.5 -0.21,3.72 0.23,1.08 0.67,1.13 -0.01,0.44 -1.77,6.15 -0.31,2.37 0.28,1 -0.25,1.59 -1.75,2.04 -1.76,0.67 -0.18,0.71 1.94,1.32 0.42,-0.27 1.37,0.24 0.25,0.35 0.11,0.88 -0.62,1.19 0.85,1.44 0.88,-0.07 3,4.16 0.91,0.85 2.28,3.02 2.14,-1.34 4.27,-0.94 1.8,1.22 0.08,1.75 -0.64,3.25 0.39,1.35 -3.39,0.35 -1.34,0.54 -0.57,0.55 -0.68,1.43 -0.73,2.68 0.37,1.3 -2.63,2.55 -0.26,0.7 0.2,0.42 2.08,0.29 0.94,0.69 0.74,1.59 0.06,1.66 0.62,1.04 3.88,1.95 0.09,0.53 -1.64,1.81 0.13,1.65 2.14,1.62 0.99,2.87 1.34,2 0.71,0.18 1.78,-0.21 1,0.3 0.82,0.44 0.61,0.82 1.28,0.66 0,0 2.94,0.21 0,0 -0.69,0.65 -0.22,0.98 -0.56,0.47 -3.82,2.02 -3.21,2.62 -0.19,0.37 1.29,1.8 -0.36,0.39 -1.01,0.27 -0.9,0.61 -1.52,3.49 -1.01,0.72 -0.5,1.16 0.23,0.92 1.86,1.95 3.59,0.67 1.87,0.99 0.05,0.76 -0.56,0.45 -2.04,0.81 -0.43,0.96 0.09,0.5 0.35,0.33 1.03,-0.18 0.92,0.29 0.58,0.51 0.29,0.64 -0.96,0.71 -1.15,0.42 -1.95,1.67 -0.19,0.85 -0.05,2.92 0.35,1.25 0.94,0.66 1.05,0.24 0.41,0.25 0.17,0.42 0.05,1.06 -1.36,2.38 z" id="to" title="Tocantins"></path>
+                  </g>
+                </svg>
+
+                <!-- Project Dots -->
+                <!-- Juiz de Fora, MG (Sede) -->
+                <div class="absolute top-[69%] left-[65%] z-30 project-dot group">
+                  <div class="relative cursor-pointer w-8 h-8 flex items-center justify-center -ml-4 -mt-4 transition-transform hover:scale-110">
+                    <div class="w-3 h-3 bg-gold-400 rounded-full shadow-[0_0_12px_#D4AF37]"></div>
+                    <div class="absolute inset-0 m-auto w-3 h-3 bg-gold-400 rounded-full animate-ping opacity-75"></div>
+                  </div>
+                  <div class="project-card absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-44 bg-charcoal-900 border border-charcoal-700 rounded-lg shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom flex flex-col overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=320&h=200&fit=crop" class="w-full h-24 object-cover" alt="Sede JF">
+                    <div class="p-3">
+                      <p class="text-[10px] text-gold-500 font-bold uppercase tracking-widest mb-1">Sede Central</p>
+                      <p class="text-xs text-white font-medium">Juiz de Fora, MG</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- São Paulo, SP -->
+                <div class="absolute top-[76%] left-[60%] z-30 project-dot group">
+                  <div class="relative cursor-pointer w-8 h-8 flex items-center justify-center -ml-4 -mt-4 transition-transform hover:scale-110">
+                    <div class="w-2.5 h-2.5 bg-gold-400 rounded-full shadow-[0_0_10px_#D4AF37]"></div>
+                    <div class="absolute inset-0 m-auto w-2.5 h-2.5 bg-gold-400 rounded-full animate-ping opacity-75" style="animation-delay: 0.2s"></div>
+                  </div>
+                  <div class="project-card absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-44 bg-charcoal-900 border border-charcoal-700 rounded-lg shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom flex flex-col overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=320&h=200&fit=crop" class="w-full h-24 object-cover" alt="Masterplan SP">
+                    <div class="p-3">
+                      <p class="text-[10px] text-gold-500 font-bold uppercase tracking-widest mb-1">Masterplan</p>
+                      <p class="text-xs text-white font-medium">São Paulo, SP</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Rio de Janeiro, RJ -->
+                <div class="absolute top-[74%] left-[64%] z-30 project-dot group">
+                  <div class="relative cursor-pointer w-8 h-8 flex items-center justify-center -ml-4 -mt-4 transition-transform hover:scale-110">
+                    <div class="w-3 h-3 bg-gold-400 rounded-full shadow-[0_0_12px_#D4AF37]"></div>
+                    <div class="absolute inset-0 m-auto w-3 h-3 bg-gold-400 rounded-full animate-ping opacity-75" style="animation-delay: 0.4s"></div>
+                  </div>
+                  <div class="project-card absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-44 bg-charcoal-900 border border-charcoal-700 rounded-lg shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom flex flex-col overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=320&h=200&fit=crop" class="w-full h-24 object-cover" alt="Residencial RJ">
+                    <div class="p-3">
+                      <p class="text-[10px] text-gold-500 font-bold uppercase tracking-widest mb-1">Torre Residencial</p>
+                      <p class="text-xs text-white font-medium">Rio de Janeiro, RJ</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Vitória, ES -->
+                <div class="absolute top-[68%] left-[68%] z-30 project-dot group">
+                  <div class="relative cursor-pointer w-8 h-8 flex items-center justify-center -ml-4 -mt-4 transition-transform hover:scale-110">
+                    <div class="w-2 h-2 bg-gold-400 rounded-full shadow-[0_0_10px_#D4AF37]"></div>
+                    <div class="absolute inset-0 m-auto w-2 h-2 bg-gold-400 rounded-full animate-ping opacity-75" style="animation-delay: 0.1s"></div>
+                  </div>
+                  <div class="project-card absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-44 bg-charcoal-900 border border-charcoal-700 rounded-lg shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom flex flex-col overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=320&h=200&fit=crop" class="w-full h-24 object-cover" alt="Corporate ES">
+                    <div class="p-3">
+                      <p class="text-[10px] text-gold-500 font-bold uppercase tracking-widest mb-1">Corporate Center</p>
+                      <p class="text-xs text-white font-medium">Vitória, ES</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Decorative Dots (Obras em toda parte) -->
+                <div class="absolute top-[35%] left-[55%] z-20 w-1.5 h-1.5 bg-gold-400/60 rounded-full shadow-[0_0_8px_#D4AF37]"></div>
+                <div class="absolute top-[45%] left-[65%] z-20 w-2 h-2 bg-gold-400/80 rounded-full shadow-[0_0_8px_#D4AF37] animate-pulse"></div>
+                <div class="absolute top-[25%] left-[40%] z-20 w-1 h-1 bg-gold-400/50 rounded-full"></div>
+                <div class="absolute top-[55%] left-[50%] z-20 w-2 h-2 bg-gold-400/70 rounded-full shadow-[0_0_8px_#D4AF37] animate-pulse" style="animation-delay: 0.5s"></div>
+                <div class="absolute top-[65%] left-[58%] z-20 w-1.5 h-1.5 bg-gold-400/60 rounded-full"></div>
+                <div class="absolute top-[48%] left-[75%] z-20 w-1 h-1 bg-gold-400/80 rounded-full"></div>
+                <div class="absolute top-[38%] left-[30%] z-20 w-2 h-2 bg-gold-400/60 rounded-full shadow-[0_0_8px_#D4AF37]"></div>
+                <div class="absolute top-[70%] left-[48%] z-20 w-1.5 h-1.5 bg-gold-400/70 rounded-full animate-pulse" style="animation-delay: 1.2s"></div>
+                <div class="absolute top-[28%] left-[62%] z-20 w-1.5 h-1.5 bg-gold-400/50 rounded-full"></div>
+                <div class="absolute top-[52%] left-[42%] z-20 w-1 h-1 bg-gold-400/90 rounded-full shadow-[0_0_5px_#D4AF37]"></div>
+                <div class="absolute top-[60%] left-[70%] z-20 w-2 h-2 bg-gold-400/80 rounded-full shadow-[0_0_8px_#D4AF37] animate-pulse" style="animation-delay: 0.8s"></div>
+                <div class="absolute top-[42%] left-[52%] z-20 w-1.5 h-1.5 bg-gold-400/60 rounded-full"></div>
+                <div class="absolute top-[32%] left-[50%] z-20 w-1 h-1 bg-gold-400/70 rounded-full"></div>
+                <div class="absolute top-[58%] left-[65%] z-20 w-1.5 h-1.5 bg-gold-400/80 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
+              </div>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+
+              <!-- Grid pattern for collapsed state -->
+              <div id="location-map-grid" class="absolute inset-0 opacity-[0.05] transition-opacity duration-300">
+                <svg width="100%" height="100%" class="absolute inset-0">
+                  <defs>
+                    <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" class="stroke-white" stroke-width="0.5"></path>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-pattern)"></rect>
+                </svg>
+              </div>
+
+              <!-- Content -->
+              <div class="relative z-20 flex h-full flex-col justify-between p-5 pointer-events-none">
+                <!-- Top section -->
+                <div class="flex items-start justify-between">
+                  <div class="relative transition-opacity duration-300" id="location-map-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold-500 drop-shadow-[0_0_4px_rgba(212,175,55,0.3)] transition-all duration-300">
+                      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                      <line x1="9" x2="9" y1="3" y2="18"></line>
+                      <line x1="15" x2="15" y1="6" y2="21"></line>
+                    </svg>
+                  </div>
+
+                  <div id="location-map-status" class="flex items-center gap-1.5 rounded-full px-2 py-1 bg-white/5 backdrop-blur-sm transition-all duration-300">
+                    <div class="h-1.5 w-1.5 rounded-full bg-gold-500"></div>
+                    <span class="text-charcoal-400 text-[10px] font-medium tracking-wide uppercase">Brasil</span>
+                  </div>
+                </div>
+
+                <!-- Bottom section -->
+                <div class="space-y-1">
+                  <h3 id="location-map-title" class="text-white text-sm font-medium tracking-tight transition-transform duration-300 ease-out">
+                    Atuação Nacional
+                  </h3>
+                  
+                  <div id="location-map-coords-container" class="overflow-hidden transition-all duration-300" style="height: 0px; opacity: 0;">
+                    <p class="text-charcoal-400 font-mono text-xs pb-2 leading-relaxed">
+                      Sede: Juiz de Fora, MG<br>
+                      Obras em SP, RJ, MG, ES...
+                    </p>
+                  </div>
+
+                  <!-- Animated underline -->
+                  <div id="location-map-line" class="h-px bg-gradient-to-r from-gold-500/80 via-gold-400/50 to-transparent origin-left transition-transform duration-500 ease-out" style="transform: scaleX(0.3);"></div>
+                </div>
+              </div>
+            </div>
+            <p id="location-map-hint" class="text-charcoal-400 absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] whitespace-nowrap opacity-0 transition-all duration-200 translate-y-1">
+              Clique para expandir
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA / CONTACT SECTION ==================== -->
+    <section class="relative bg-charcoal-950 py-20 sm:py-28 overflow-hidden" id="visit">
+      <!-- Background glow -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-charcoal-900 to-charcoal-800 border border-charcoal-700/50 p-10 md:p-16 lg:p-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left content -->
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="accent-line"></div>
+                <p class="text-sm font-syne font-bold uppercase tracking-[0.25em] text-gold-500">Fale Conosco</p>
+              </div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-geist font-bold text-white leading-tight mb-6">
+                Dê o primeiro passo para o seu próximo grande projeto.
+              </h2>
+              <p class="text-charcoal-400 font-syne text-lg mb-10">
+                Solicite um estudo inicial de viabilidade para sua obra. Nossa capacidade para assumir novos masterplans neste semestre é limitada para garantir o nosso padrão de excelência premium.
+              </p>
+              
+              <div class="flex flex-col gap-5 font-syne">
+                <a href="#" class="flex items-center gap-4 text-charcoal-300 hover:text-white transition-colors group">
+                  <div class="flex h-12 w-12 items-center justify-center bg-gold-500/10 group-hover:bg-gold-500 transition-colors flex-shrink-0">
+                    <i data-lucide="map-pin" class="h-5 w-5 text-gold-500 group-hover:text-white transition-colors"></i>
+                  </div>
+                  <span>Sede: Juiz de Fora / MG (Atuação Nacional)</span>
+                </a>
+                <a href="tel:31996734478" class="flex items-center gap-4 text-charcoal-300 hover:text-white transition-colors group">
+                  <div class="flex h-12 w-12 items-center justify-center bg-gold-500/10 group-hover:bg-gold-500 transition-colors flex-shrink-0">
+                    <i data-lucide="phone" class="h-5 w-5 text-gold-500 group-hover:text-white transition-colors"></i>
+                  </div>
+                  <span>(31) 99673-4478</span>
+                </a>
+                <a href="mailto:grandicitta.engenharia@gmail.com" class="flex items-center gap-4 text-charcoal-300 hover:text-white transition-colors group">
+                  <div class="flex h-12 w-12 items-center justify-center bg-gold-500/10 group-hover:bg-gold-500 transition-colors flex-shrink-0">
+                    <i data-lucide="mail" class="h-5 w-5 text-gold-500 group-hover:text-white transition-colors"></i>
+                  </div>
+                  <span>grandicitta.engenharia@gmail.com</span>
+                </a>
+                <div class="flex items-center gap-4 text-charcoal-300">
+                  <div class="flex h-12 w-12 items-center justify-center bg-gold-500/10 flex-shrink-0">
+                    <i data-lucide="file-text" class="h-5 w-5 text-gold-500"></i>
+                  </div>
+                  <span>CNPJ: 51.879.163/0001-27</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: CTA buttons -->
+            <div class="flex flex-col gap-4">
+              <a href="https://instagram.com/grandi.citta" target="_blank" class="group flex items-center justify-center gap-4 border border-charcoal-600 bg-charcoal-800/50 hover:bg-gold-500 hover:border-gold-500 px-8 py-5 text-sm font-syne font-bold uppercase tracking-widest transition-all text-white">
+                <svg class="h-5 w-5 text-gold-500 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+                Seguir @grandi.citta
+              </a>
+              <a href="mailto:grandicitta.engenharia@gmail.com" class="group flex items-center justify-center gap-4 bg-gold-500 hover:bg-gold-600 text-white px-8 py-5 text-sm font-syne font-bold uppercase tracking-widest transition-all hover:shadow-xl hover:shadow-gold-500/30">
+                Solicitar Viabilidade
+                <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+              </a>
+              <a href="tel:31996734478" class="group flex items-center justify-center gap-4 border border-charcoal-600 bg-charcoal-800/50 hover:bg-charcoal-700 px-8 py-5 text-sm font-syne font-bold uppercase tracking-widest transition-all text-white">
+                <i data-lucide="phone" class="h-5 w-5 text-gold-500 group-hover:text-white transition-colors"></i>
+                Falar com Especialista
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-charcoal-950 border-t border-charcoal-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="Imagens/Logo.jpg" alt="Grandi Città Logo" class="h-10 w-10 object-contain">
+          <div>
+            <span class="block text-sm font-geist font-bold text-white tracking-tight">GRANDI CITTÀ</span>
+            <span class="block text-[10px] font-geist text-charcoal-500 uppercase tracking-[0.25em]">Engenharia</span>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-sm font-syne text-charcoal-500 text-center">
+          &copy; 2026 Grandi Città Engenharia. Todos os direitos reservados.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-3 md:justify-end">
+          <a href="https://instagram.com/grandi.citta" class="flex h-10 w-10 items-center justify-center border border-charcoal-700 text-charcoal-400 hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all" aria-label="Instagram">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+          </a>
+          <a href="https://facebook.com" class="flex h-10 w-10 items-center justify-center border border-charcoal-700 text-charcoal-400 hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all" aria-label="Facebook">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://linkedin.com" class="flex h-10 w-10 items-center justify-center border border-charcoal-700 text-charcoal-400 hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all" aria-label="LinkedIn">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Close on link click
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+  <!-- LocationMap Script -->
+  <script>
+    const locationMapContainer = document.getElementById('location-map-container');
+    const locationMapCard = document.getElementById('location-map-card');
+    const locationMapExpanded = document.getElementById('location-map-expanded');
+    const locationMapGrid = document.getElementById('location-map-grid');
+    const locationMapIcon = document.getElementById('location-map-icon');
+    const locationMapStatus = document.getElementById('location-map-status');
+    const locationMapTitle = document.getElementById('location-map-title');
+    const locationMapCoords = document.getElementById('location-map-coords-container');
+    const locationMapLine = document.getElementById('location-map-line');
+    const locationMapHint = document.getElementById('location-map-hint');
+    
+    if (locationMapContainer && locationMapCard) {
+      let isExpanded = false;
+      let isHovered = false;
+
+      // Mouse move for 3D tilt
+      locationMapContainer.addEventListener('mousemove', (e) => {
+        if (!locationMapCard) return;
+        const rect = locationMapContainer.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Calculate distance from center
+        const mouseX = e.clientX - centerX;
+        const mouseY = e.clientY - centerY;
+        
+        // Map to rotation angles (-8 to 8 degrees)
+        const rotateX = -(mouseY / (rect.height / 2)) * 8;
+        const rotateY = (mouseX / (rect.width / 2)) * 8;
+        
+        // Apply transform
+        locationMapCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      // Mouse enter
+      locationMapContainer.addEventListener('mouseenter', () => {
+        isHovered = true;
+        // Update styles for hover state
+        locationMapStatus.classList.remove('bg-white/5');
+        locationMapStatus.classList.add('bg-white/10', 'scale-105');
+        
+        locationMapTitle.style.transform = 'translateX(4px)';
+        locationMapLine.style.transform = 'scaleX(1)';
+        
+        const svg = locationMapIcon.querySelector('svg');
+        if (svg) svg.style.filter = 'drop-shadow(0 0 8px rgba(212,175,55,0.6))';
+        
+        if (!isExpanded) {
+          locationMapHint.style.opacity = '1';
+          locationMapHint.style.transform = 'translateX(-50%) translateY(0)';
+        }
+      });
+
+      // Mouse leave
+      locationMapContainer.addEventListener('mouseleave', () => {
+        isHovered = false;
+        
+        // Reset 3D tilt smoothly
+        locationMapCard.style.transitionProperty = 'transform, width, height';
+        locationMapCard.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        
+        // Remove transition after it completes so mousemove is responsive again
+        setTimeout(() => {
+          locationMapCard.style.transitionProperty = 'width, height';
+        }, 500);
+
+        // Reset hover styles
+        locationMapStatus.classList.add('bg-white/5');
+        locationMapStatus.classList.remove('bg-white/10', 'scale-105');
+        
+        locationMapTitle.style.transform = 'translateX(0)';
+        if (!isExpanded) {
+          locationMapLine.style.transform = 'scaleX(0.3)';
+        }
+        
+        const svg = locationMapIcon.querySelector('svg');
+        if (svg) svg.style.filter = 'drop-shadow(0 0 4px rgba(212,175,55,0.3))';
+        
+        locationMapHint.style.opacity = '0';
+        locationMapHint.style.transform = 'translateX(-50%) translateY(4px)';
+      });
+
+      // Click to expand
+      locationMapContainer.addEventListener('click', (e) => {
+        // Prevent map close when clicking cards or dots
+        if (e.target.closest('.project-card') || e.target.closest('.project-dot')) return;
+
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+          locationMapCard.style.width = '640px';
+          locationMapCard.style.height = '460px';
+          
+          locationMapExpanded.style.opacity = '1';
+          locationMapGrid.style.opacity = '0';
+          locationMapIcon.style.opacity = '0';
+          
+          locationMapCoords.style.height = locationMapCoords.scrollHeight + 'px';
+          locationMapCoords.style.opacity = '1';
+          locationMapCoords.style.marginTop = '4px';
+          
+          locationMapLine.style.transform = 'scaleX(1)';
+          
+          locationMapHint.style.opacity = '0';
+        } else {
+          locationMapCard.style.width = '240px';
+          locationMapCard.style.height = '140px';
+          
+          locationMapExpanded.style.opacity = '0';
+          locationMapGrid.style.opacity = '0.05';
+          locationMapIcon.style.opacity = '1';
+          
+          locationMapCoords.style.height = '0px';
+          locationMapCoords.style.opacity = '0';
+          locationMapCoords.style.marginTop = '0px';
+          
+          if (!isHovered) {
+            locationMapLine.style.transform = 'scaleX(0.3)';
+          }
+          
+          if (isHovered) {
+            locationMapHint.style.opacity = '1';
+            locationMapHint.style.transform = 'translateX(-50%) translateY(0)';
+          }
+
+          // Close all cards
+          document.querySelectorAll('.project-card').forEach(c => {
+            c.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto', 'z-50');
+            c.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+          });
+        }
+      });
+
+      // Project Dots Click Logic
+      const dots = document.querySelectorAll('.project-dot');
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent map from closing
+          const card = dot.querySelector('.project-card');
+          const isShowing = card.classList.contains('opacity-100');
+          
+          // Close others
+          document.querySelectorAll('.project-card').forEach(c => {
+            c.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto', 'z-50');
+            c.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+          });
+
+          // Toggle current
+          if (!isShowing) {
+            card.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+            card.classList.add('opacity-100', 'scale-100', 'pointer-events-auto', 'z-50');
+          }
+        });
+      });
+      
+      // Initial state setup
+      locationMapCard.style.transitionProperty = 'width, height';
+    }
+  </script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Flashlight Effect
+            const cards = document.querySelectorAll('.card-flashlight');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // Parallax Effect
+            const parallaxLayers = document.querySelectorAll('.parallax-layer');
+            let ticking = false;
+
+            function updateParallax() {
+                parallaxLayers.forEach(layer => {
+                    const speed = parseFloat(layer.getAttribute('data-parallax-speed')) || 0.1;
+                    const parent = layer.parentElement;
+                    const rect = parent.getBoundingClientRect();
+                    const viewportCenter = window.innerHeight / 2;
+                    const elementCenter = rect.top + (rect.height / 2);
+                    
+                    // Render parallax only if the element is roughly visible in the viewport
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const distanceFromCenter = elementCenter - viewportCenter;
+                        const yPos = distanceFromCenter * speed;
+                        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                    }
+                });
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+            
+            // Initial render
+            updateParallax();
+        });
+
+        // WebGL Image Reveal Setup
+        (function() {
+            const vsSource = `
+                attribute vec2 aPosition;
+                varying vec2 vUv;
+                void main() {
+                    vUv = aPosition * 0.5 + 0.5;
+                    gl_Position = vec4(aPosition, 0.0, 1.0);
+                }
+            `;
+
+            const fsSource = `
+                precision highp float;
+                varying vec2 vUv;
+                uniform sampler2D uImage;
+                uniform float uProgress;
+
+                void main() {
+                    // 4 Column logic
+                    float cols = 4.0;
+                    float colIndex = floor(vUv.x * cols);
+                    
+                    // Stagger animation timing per column
+                    float stagger = 0.15;
+                    float delay = colIndex * stagger;
+                    
+                    // Map global progress (0 -> 1) to localized column progress
+                    float localProgress = clamp((uProgress * (1.0 + 3.0 * stagger) - delay), 0.0, 1.0);
+                    
+                    // Cubic Out Easing
+                    float f = localProgress - 1.0;
+                    float ease = f * f * f + 1.0;
+
+                    // Reveal Mask: WebGL loads image textures flipped vertically by default
+                    // So vUv.y = 1.0 is the top visual edge of the image.
+                    // We animate the bottom edge of our visible area downwards.
+                    if (vUv.y < 1.0 - ease) {
+                        discard;
+                    }
+
+                    gl_FragColor = texture2D(uImage, vUv);
+                }
+            `;
+
+            function initWebGLImage(originalImg) {
+                if (originalImg.dataset.webglInit) return;
+                originalImg.dataset.webglInit = "true";
+
+                // Preload image via JS to handle CORS cleanly before binding to WebGL
+                const img = new Image();
+                img.crossOrigin = "anonymous";
+                
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    // Setting internal resolution to match image bounds
+                    canvas.width = img.naturalWidth;
+                    canvas.height = img.naturalHeight;
+                    
+                    // Inherit all Tailwind classes and inline styles (e.g. object-fit, mix-blend, mask)
+                    canvas.className = originalImg.className;
+                    canvas.style.cssText = originalImg.style.cssText;
+                    
+                    originalImg.parentNode.insertBefore(canvas, originalImg);
+                    originalImg.style.display = 'none'; // Visually hide the original DOM element
+
+                    const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false });
+                    if (!gl) return;
+
+                    // Shader Compilation
+                    const compileShader = (type, source) => {
+                        const shader = gl.createShader(type);
+                        gl.shaderSource(shader, source);
+                        gl.compileShader(shader);
+                        return shader;
+                    };
+
+                    const program = gl.createProgram();
+                    gl.attachShader(program, compileShader(gl.VERTEX_SHADER, vsSource));
+                    gl.attachShader(program, compileShader(gl.FRAGMENT_SHADER, fsSource));
+                    gl.linkProgram(program);
+                    gl.useProgram(program);
+
+                    // Setup Full-Screen Quad Buffer
+                    const positionBuffer = gl.createBuffer();
+                    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                        -1, -1,  1, -1, -1,  1,
+                        -1,  1,  1, -1,  1,  1
+                    ]), gl.STATIC_DRAW);
+
+                    const positionLocation = gl.getAttribLocation(program, "aPosition");
+                    gl.enableVertexAttribArray(positionLocation);
+                    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+                    // Setup Texture Layer
+                    const texture = gl.createTexture();
+                    gl.bindTexture(gl.TEXTURE_2D, texture);
+                    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+                    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+                    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+                    const uProgressLoc = gl.getUniformLocation(program, "uProgress");
+
+                    let startTime = null;
+                    const duration = 1200; // Animation duration in ms
+                    let animating = false;
+
+                    const render = (time) => {
+                        if (!startTime) startTime = time;
+                        let progress = (time - startTime) / duration;
+                        if (progress > 1.0) progress = 1.0;
+                        
+                        gl.viewport(0, 0, canvas.width, canvas.height);
+                        gl.clearColor(0, 0, 0, 0);
+                        gl.clear(gl.COLOR_BUFFER_BIT);
+
+                        gl.uniform1f(uProgressLoc, progress);
+                        gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+                        if (progress < 1.0) {
+                            requestAnimationFrame(render);
+                        } else {
+                            animating = false;
+                        }
+                    };
+
+                    // Render initial empty state
+                    gl.viewport(0, 0, canvas.width, canvas.height);
+                    gl.clearColor(0, 0, 0, 0);
+                    gl.clear(gl.COLOR_BUFFER_BIT);
+
+                    // Intersection Observer to trigger when visible
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                if (!animating) {
+                                    animating = true;
+                                    startTime = null; // Reset timer
+                                    requestAnimationFrame(render);
+                                }
+                                observer.unobserve(canvas);
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
+                    observer.observe(canvas);
+                };
+                
+                img.src = originalImg.src;
+            }
+
+            const images = document.querySelectorAll('img:not([data-no-webgl])');
+            images.forEach(initWebGLImage);
+        })();
+    </script>
+
+</body>
+</html>
